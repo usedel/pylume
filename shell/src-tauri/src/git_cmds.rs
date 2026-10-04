@@ -1569,6 +1569,16 @@ pub async fn git_default_branch(
 mod tests {
     use super::*;
 
+    /// 为临时仓库设置仓库级提交身份：CI runner 不保证有全局 user.name/email，
+    /// 任何会 `git commit` 的端到端测试都必须先调这个。
+    fn set_repo_identity(root: &str) {
+        for (k, v) in [("user.name", "pylume-test"), ("user.email", "test@pylume.local")] {
+            let mut cfg = tool_command("git", ENV_GIT);
+            cfg.arg("config").arg(k).arg(v);
+            assert!(exec_git(root, cfg).is_ok(), "设置 {k} 失败");
+        }
+    }
+
     /// parse_blame 中文行不 panic（用户仓库实测：summary 含中文时原 split_at(40)
     /// 字节切分切进多字节字符 → Rust panic "not a char boundary"）。
     /// 复现数据取自真实仓库的 blame porcelain 输出（中文 summary 超 40 字节）。
@@ -1625,6 +1635,7 @@ filename a.py
             let _ = std::fs::remove_dir_all(&tmp);
             return;
         }
+        set_repo_identity(&root);
 
         // 创建一个文件并暂存
         std::fs::write(tmp.join("a.py"), "print(1)\n").unwrap();
@@ -1837,12 +1848,7 @@ filename a.py
         let mut add = tool_command("git", ENV_GIT);
         add.arg("add").arg("README.md");
         assert!(exec_git(source.to_str().unwrap(), add).is_ok());
-        // 显式设仓库级提交身份：CI runner 不保证有全局 user.name/email
-        for (k, v) in [("user.name", "pylume-test"), ("user.email", "test@pylume.local")] {
-            let mut cfg = tool_command("git", ENV_GIT);
-            cfg.arg("config").arg(k).arg(v);
-            assert!(exec_git(source.to_str().unwrap(), cfg).is_ok());
-        }
+        set_repo_identity(source.to_str().unwrap());
         let mut commit = tool_command("git", ENV_GIT);
         commit.arg("commit").arg("-m").arg("init").arg("--no-gpg-sign");
         assert!(exec_git(source.to_str().unwrap(), commit).is_ok());
