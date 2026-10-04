@@ -1,0 +1,219 @@
+# Pylume Nightly（低频真机 + 性能红线 + 预算门禁）
+#
+# 为什么要独立于 ci.yml（improvement_and_roadmap_report.md §2 P0-1 子项 2）：
+#   真机层（e2e-real）慢且不稳，**绝不能进 PR 门禁**——否则会被"改个文案跑 40 分钟
+#   编译 + 真机偶发失败"淹没，护栏反而被绕过。台账 e2e_divergence_ledger.md 已约定
+#   「高频 mock + 低频真机」双层策略，本文件是它的自动化落点。
+#
+# 失败语义：**只告警，不阻断**（continue-on-error）。
+#   单人自用项目没有第二个人看 CI 告警，因此本 workflow 的价值是"出汇总报告"而非
+#   "卡住合并"；真出问题时它会留下 artifacts 可查。
+#
+# 三个 job：
+#   e2e-real —— 9 个真机脚本逐个跑，每个出一份 JSON 汇总（schema 见 real-env.cjs）
+#   bench    —— 打包 + 冷启动 / 内存红线（与 package-smoke 同脚本，-Runs 3 取均值）
+#   budget   —— 体积与规模预算断言（P1-3，阈值在 ci/budgets.toml）
+#
+# 手动触发：Actions → Nightly → Run workflow（可传 run_real=false 只跑轻量项）。
+
+name: Nightly
+
+on:
+  schedule:
+    # 每日 03:17 UTC（错开整点，避免与 GitHub 高峰期排队）
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+    inputs:
+      run_real:
+        description: "跑真机层（慢，约 40~60 分钟；false 则只跑 bench + budget）"
+        type: boolean
+        default: true
+
+# 允许手动触发时按输入裁剪 job
+concurrency:
+  group: nightly-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  e2e-real:
+    name: 真机 CDP 验收（全量）
+    if: github.event_name == 'schedule' || inputs.run_real
+    runs-on: windows-latest
+    timeout-minutes: 150
+    continue-on-error: true   # 只告警
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 安装 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: shell/package-lock.json
+
+      - name: 安装 Python（真机脚本的解释器预检用）
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: 安装 Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.96.0"
+
+      - name: 记录解释器路径（供 OC_REAL_PYTHON 使用）
+        shell: pwsh
+        run: |
+          $exe = python -c "import sys; print(sys.executable)"
+          "OC_REAL_PYTHON=$exe" >> $env:GITHUB_ENV
+          "PYTHONUTF8=1" >> $env:GITHUB_ENV
+          Write-Host "OC_REAL_PYTHON=$exe"
+
+      - name: 前端依赖
+        working-directory: shell
+        run: npm ci
+
+      - name: tauri CLI 与系统依赖
+        working-directory: shell
+        run: npm install --no-save @tauri-apps/cli@2.11.5
+
+      - name: 跑真机脚本（逐个，串行避免 5173 / 9223 端口互撞）
+        working-directory: shell
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force nightly-reports | Out-Null
+          $scripts = @(
+            'db-real.cjs', 'debug-real.cjs', 'endpoints-real.cjs',
+            'multi-window-real.cjs', 'new-project-fastapi-real.cjs',
+            'probe-real-lag.cjs', 'probe-mw-lag.cjs', 'probe-watch-multiwin.cjs',
+            'ui-real.cjs'
+          )
+          $fail = 0
+          foreach ($s in $scripts) {
+            Write-Host "::group::$s"
+            $env:OC_JSON_OUT = "nightly-reports/$($s -replace '\.cjs$','').json"
+            $env:OC_CDP_TIMEOUT = "1500"      # 首次 cargo build 慢
+            node "e2e-real/$s"
+            $code = $LASTEXITCODE
+            if ($code -ne 0) { $fail++; Write-Host "::warning::$s 退出码 $code" }
+            Remove-Item Env:\OC_JSON_OUT -ErrorAction SilentlyContinue
+            Write-Host "::endgroup::"
+          }
+          Write-Host "共 $($scripts.Count) 个脚本，失败 $fail 个"
+          # 不让 job 因脚本失败而红：只告警，报告在 artifacts 里
+          exit 0
+
+      - name: 汇总真机结果
+        if: always()
+        shell: pwsh
+        run: |
+          $rows = @('| 套件 | 通过 | 失败 | 总数 | 结论 |', '|---|---|---|---|---|')
+          foreach ($f in (Get-ChildItem nightly-reports -Filter *.json -ErrorAction SilentlyContinue)) {
+            $j = Get-Content $f.FullName -Raw -Encoding UTF8 | ConvertFrom-Json
+            $verdict = if ($j.ok) { 'PASS' } elseif ($j.error) { "SKIP/ENV（$($j.error)）" } else { 'FAIL' }
+            $rows += "| $($j.suite) | $($j.total - $j.failed) | $($j.failed) | $($j.total) | $verdict |"
+            Write-Host "$($j.suite): $($j.total) 项 / 失败 $($j.failed) / $($verdict)"
+          }
+          if ($rows.Count -gt 2) {
+            $sum = @('# 真机验收汇总', '', ($rows -join "`n"), '', "- HEAD：``${{ github.sha }}``", "- 完整用例明细见同目录各 JSON 的 ``cases`` 数组")
+            $sum | Set-Content nightly-reports/SUMMARY.md -Encoding UTF8
+          }
+
+      - name: 上传真机报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-real-${{ github.run_id }}
+          path: shell/nightly-reports/
+          retention-days: 14
+
+      - name: 上传真机运行日志
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-real-logs-${{ github.run_id }}
+          path: |
+            shell/e2e-real/.tauri-dev*.log
+            shell/e2e-real/*.log
+          retention-days: 7
+
+  bench:
+    name: 打包 + 冷启动 / 内存红线
+    runs-on: windows-latest
+    timeout-minutes: 60
+    continue-on-error: true   # 只告警
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 安装 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: shell/package-lock.json
+
+      - name: 安装 Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.96.0"
+
+      - name: 前端依赖
+        working-directory: shell
+        run: npm ci
+
+      - name: 打包（NSIS release）
+        shell: pwsh
+        run: ./build-release.ps1 -SkipNpmInstall
+
+      - name: bench 红线（冷启动 < 1500ms / 内存 <= 600MB）
+        shell: pwsh
+        run: ./bench/collect-metrics.ps1 -Runs 3
+
+      - name: 上传 bench 报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bench-${{ github.run_id }}
+          path: bench/reports/metrics-*.md
+          retention-days: 30
+
+  budget:
+    name: 体积与规模预算
+    runs-on: windows-latest
+    timeout-minutes: 20
+    continue-on-error: true   # 只告警
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 安装 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: shell/package-lock.json
+
+      - name: 前端依赖 + 构建（量产体积）
+        working-directory: shell
+        run: |
+          npm ci
+          npm run build
+
+      - name: 预算断言（阈值在 ci/budgets.toml）
+        run: node shell/scripts/budget-check.mjs
+
+      - name: 取数快照
+        if: always()
+        run: node tools/stats/repo-stats.mjs
+
+      - name: 上传报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: budget-${{ github.run_id }}
+          path: |
+            bench/reports/budget-*.md
+            bench/reports/stats-*.md
+          retention-days: 30

@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-09-27T14:24:59.200Z",
+  "pageErrors": [],
+  "probe": "P6 面板内只读 Monaco 成本",
+  "monacoVersion": null,
+  "textChars": 3470,
+  "textLines": 40,
+  "matchCount": 500,
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+  "createEditors": [
+    {
+      "index": 1,
+      "create_ms": 37,
+      "nextFrame_ms": 11.2
+    },
+    {
+      "index": 2,
+      "create_ms": 2.5,
+      "nextFrame_ms": 22.2
+    },
+    {
+      "index": 3,
+      "create_ms": 2.1,
+      "nextFrame_ms": 3.7
+    }
+  ],
+  "decorations500": {
+    "apply_ms": 2.5,
+    "nextFrame_ms": 8.2,
+    "note": "createDecorationsCollection 一次性写入 500 条"
+  },
+  "decorations500Update": {
+    "apply_ms": 1.2,
+    "nextFrame_ms": 8
+  },
+  "setValue": {
+    "apply_ms": 2.9,
+    "nextFrame_ms": 14.9
+  },
+  "overlay500Spans": {
+    "apply_ms": 3.3,
+    "nextFrame_ms": 11.8,
+    "injectedSpans": 500
+  },
+  "dispose3_ms": 2.5,
+  "heap": {
+    "before": 13400000,
+    "afterCreate3": 13400000,
+    "end": 13400000,
+    "delta3Editors_MB": 0
+  }
+}

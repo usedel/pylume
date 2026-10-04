@@ -1,0 +1,46 @@
+{
+  "engine": "basedpyright@1.39.10",
+  "generatedAt": "2026-09-27T06:16:52.697Z",
+  "projectRoot": "d:\\code\\pylume\\bench\\sample\\extract_refactor",
+  "mainDiagArrived": false,
+  "hoverAlive": "{\"contents\":{\"kind\":\"plaintext\",\"value\":\"(parameter) price: int\"},\"range\":{\"start\":{\"line\":6,\"character\":15},\"end\":{\"line\":6,\"character\":20}}}",
+  "probes": {
+    "fullList": {
+      "target": "全量 codeAction（不带 only）· print(price * qty)",
+      "total": 0,
+      "actions": [],
+      "resolved": [],
+      "executed": []
+    },
+    "onlyRefactor": {
+      "target": "only=[refactor] · print(price * qty)",
+      "total": 0,
+      "actions": [],
+      "resolved": [],
+      "executed": []
+    },
+    "onlyExtract": {
+      "target": "only=[refactor.extract] · print(price * qty)",
+      "total": 0,
+      "actions": [],
+      "resolved": [],
+      "executed": []
+    },
+    "returnExpr": {
+      "target": "only=[refactor] · return 长表达式",
+      "total": 0,
+      "actions": [],
+      "resolved": [],
+      "executed": []
+    },
+    "funcTarget": {
+      "target": "only=[refactor.extract] · extract function 试点",
+      "total": 0,
+      "actions": [],
+      "resolved": [],
+      "executed": []
+    }
+  },
+  "appliedEdits": [],
+  "stderrTail": ""
+}

@@ -1,0 +1,24 @@
+{
+  "functions": [
+    {
+      "qualname": "parse_page",
+      "args": {"html": ["str"]},
+      "rets": ["dict[str, str|list]"]
+    },
+    {
+      "qualname": "make_fetcher",
+      "args": {"base_url": ["str"]},
+      "rets": ["Callable"]
+    },
+    {
+      "qualname": "handle_page",
+      "args": {"data": ["str"]},
+      "rets": ["dict[str, str|list]"]
+    },
+    {
+      "qualname": "register.<locals>.deco",
+      "args": {"fn": ["Callable"]},
+      "rets": ["Callable"]
+    }
+  ]
+}

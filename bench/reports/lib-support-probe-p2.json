@@ -1,0 +1,89 @@
+{
+  "probe": "P2 静态引擎对字符串内 DSL 的支持度（pyrefly）",
+  "generatedAt": "2026-09-26T16:16:27.537Z",
+  "engine": "pyrefly",
+  "pythonPath": "D:\\py\\python.exe",
+  "diagReady": true,
+  "diagnosticsTotal": 0,
+  "diagnostics": [],
+  "diagnosticsMentioningRegexOrFormat": [],
+  "hovers": [
+    {
+      "label": "re.compile 标识符",
+      "needle": "re.compile",
+      "position": {
+        "line": 11,
+        "character": 11
+      },
+      "hover": "```python\n(method) compile: [AnyStr: (str, bytes)](\n    pattern: AnyStr,\n    flags  : _FlagsType = 0\n) -> Pattern[AnyStr]\n```\n\nGo to [str](file:///<temp>/AppData/Local/Temp/pyrefly_bundled_typeshed_a1980ad21dc5/builtins.pyi#L1033,7) | [bytes](file:///<temp>/AppData/Local/Temp/pyrefly_bundled_typeshed_a1980ad21dc5/builtins.pyi#L1902,7) | [RegexFlag](file:///<temp>/AppData/Local/Te"
+    },
+    {
+      "label": "非法正则串内部 r\"([a-z\"",
+      "needle": "([a-z",
+      "position": {
+        "line": 11,
+        "character": 21
+      },
+      "hover": "```python\nLiteral['([a-z']\n```"
+    },
+    {
+      "label": "合法正则串内部",
+      "needle": "(?P<user>",
+      "position": {
+        "line": 14,
+        "character": 26
+      },
+      "hover": "```python\nLiteral['\\\\b(?P<user>\\\\w+)@(?P<host>[\\\\w.]+)']\n```"
+    },
+    {
+      "label": "非法格式规范 {:q}",
+      "needle": "{:q}",
+      "position": {
+        "line": 23,
+        "character": 14
+      },
+      "hover": "```python\nLiteral['{:q}']\n```"
+    },
+    {
+      "label": "合法日期规范",
+      "needle": "%Y-%m-%d",
+      "position": {
+        "line": 19,
+        "character": 18
+      },
+      "hover": "```python\nLiteral['{:%Y-%m-%d %H:%M:%S}']\n```"
+    },
+    {
+      "label": "非法 %-format",
+      "needle": "%Q",
+      "position": {
+        "line": 31,
+        "character": 13
+      },
+      "hover": "```python\nLiteral['%Q']\n```"
+    }
+  ],
+  "completions": [
+    {
+      "label": "正则串内部补全",
+      "needle": "(?P<user>",
+      "position": {
+        "line": 14,
+        "character": 26
+      },
+      "total": 0,
+      "labels": []
+    },
+    {
+      "label": "格式规范内部补全",
+      "needle": "%Y-%m-%d",
+      "position": {
+        "line": 19,
+        "character": 18
+      },
+      "total": 0,
+      "labels": []
+    }
+  ],
+  "stderrTail": "nt `LspRequest(textDocument/hover)` in 0.00s (0.00s waiting)\n INFO Handling non-canceled request textDocument/hover (6)\n INFO Language server processed event `LspRequest(textDocument/hover)` in 0.00s (0.00s waiting)\n INFO Handling non-canceled request textDocument/hover (7)\n INFO Language server processed event `LspRequest(textDocument/hover)` in 0.00s (0.00s waiting)\n INFO Handling non-canceled request textDocument/completion (8)\n INFO Language server processed event `LspRequest(textDocument/completion)` in 0.00s (0.00s waiting)\n INFO Handling non-canceled request textDocument/completion (9)\n"
+}

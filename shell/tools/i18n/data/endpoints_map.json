@@ -1,0 +1,23 @@
+{
+  "重新扫描": {"key": "endpoints.rescan"},
+  "打开 /docs（Swagger UI，需服务运行中）": {"key": "endpoints.openDocs"},
+  "打开 /openapi.json（需服务运行中）": {"key": "endpoints.openOpenapi"},
+  "服务未运行：先运行项目，待控制台出现就绪行后可用": {"key": "endpoints.serviceNotRunning"},
+  "打开浏览器": {"key": "endpoints.failOpenBrowser"},
+  "扫描中…": {"key": "endpoints.scanning"},
+  "扫描失败：§": {"key": "endpoints.scanFailed", "params": ["error"]},
+  "扫描失败": {"key": "endpoints.scanFailedShort"},
+  "0 项": {"key": "endpoints.zeroItems"},
+  "§ 项": {"key": "endpoints.countItems", "params": ["count"]},
+  "正在遍历工作区文件": {"key": "endpoints.scanningHint"},
+  "未打开工作区": {"key": "endpoints.noWorkspace"},
+  "打开后此处列出 FastAPI / Flask 端点": {"key": "endpoints.noWorkspaceHint"},
+  "没有端点": {"key": "endpoints.none"},
+  "暂无 @app.get / @router.get / @app.route 声明（FastAPI / Flask 项目）": {"key": "endpoints.noneHint"},
+  "在浏览器打开": {"key": "endpoints.openAria"},
+  "在浏览器打开（需服务运行中）": {"key": "endpoints.openTip"},
+  "复制完整 URL": {"key": "endpoints.copyUrlAria"},
+  "服务未运行：无法拼出完整 URL（可先复制路由）": {"key": "endpoints.noUrlHint"},
+  "已复制：": {"key": "endpoints.copiedPrefix"},
+  "复制": {"key": "endpoints.failCopy"}
+}

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 安全问题
+    url: https://github.com/usedel/pylume/security/advisories/new
+    about: 请勿开公开 issue，按 SECURITY.md 私下报告。
+  - name: 讨论与提问
+    url: https://github.com/usedel/pylume/discussions
+    about: 使用想法、排期讨论、求助请在 Discussions。

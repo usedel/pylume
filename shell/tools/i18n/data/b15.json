@@ -1,0 +1,348 @@
+{
+ "重新扫描": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 76,
+    "quote": "\"",
+    "body": "重新扫描",
+    "start": 2542,
+    "end": 2548,
+    "src": "const refresh = mkBtn(\"ep-refresh\", \"重新扫描\", \"refresh\", () => void refreshEndpoints());"
+   }
+  ]
+ },
+ "打开 /docs（Swagger UI，需服务运行中）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 78,
+    "quote": "\"",
+    "body": "打开 /docs（Swagger UI，需服务运行中）",
+    "start": 2696,
+    "end": 2725,
+    "src": "const docs = mkBtn(\"ep-open-docs\", \"打开 /docs（Swagger UI，需服务运行中）\", \"book\", () =>"
+   }
+  ]
+ },
+ "打开 /openapi.json（需服务运行中）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 81,
+    "quote": "\"",
+    "body": "打开 /openapi.json（需服务运行中）",
+    "start": 2824,
+    "end": 2850,
+    "src": "const openapi = mkBtn(\"ep-open-openapi\", \"打开 /openapi.json（需服务运行中）\", \"json\", () =>"
+   }
+  ]
+ },
+ "服务未运行：先运行项目，待控制台出现就绪行后可用": {
+  "count": 2,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 97,
+    "quote": "\"",
+    "body": "服务未运行：先运行项目，待控制台出现就绪行后可用",
+    "start": 3295,
+    "end": 3321,
+    "src": "toast(\"服务未运行：先运行项目，待控制台出现就绪行后可用\", \"info\");"
+   },
+   {
+    "line": 240,
+    "quote": "\"",
+    "body": "服务未运行：先运行项目，待控制台出现就绪行后可用",
+    "start": 7556,
+    "end": 7582,
+    "src": "toast(\"服务未运行：先运行项目，待控制台出现就绪行后可用\", \"info\");"
+   }
+  ]
+ },
+ "打开浏览器": {
+  "count": 2,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 103,
+    "quote": "\"",
+    "body": "打开浏览器",
+    "start": 3430,
+    "end": 3437,
+    "src": "toastFail(\"打开浏览器\", e);"
+   },
+   {
+    "line": 243,
+    "quote": "\"",
+    "body": "打开浏览器",
+    "start": 7678,
+    "end": 7685,
+    "src": "void invoke(\"open_external\", { url }).catch((e) => toastFail(\"打开浏览器\", e));"
+   }
+  ]
+ },
+ "扫描中…": {
+  "count": 3,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 123,
+    "quote": "\"",
+    "body": "扫描中…",
+    "start": 3970,
+    "end": 3976,
+    "src": "if (summary) summary.textContent = \"扫描中…\";"
+   },
+   {
+    "line": 157,
+    "quote": "\"",
+    "body": "扫描中…",
+    "start": 4884,
+    "end": 4890,
+    "src": "else if (loading) summary.textContent = \"扫描中…\";"
+   },
+   {
+    "line": 168,
+    "quote": "\"",
+    "body": "扫描中…",
+    "start": 5195,
+    "end": 5201,
+    "src": "list.appendChild(emptyState(\"loading\", \"扫描中…\", \"正在遍历工作区文件\", true));"
+   }
+  ]
+ },
+ "扫描失败：§": {
+  "count": 1,
+  "exprs": [
+   "e"
+  ],
+  "sites": [
+   {
+    "line": 132,
+    "quote": "`",
+    "body": "扫描失败：${e}",
+    "start": 4251,
+    "end": 4262,
+    "src": "renderEndpointPanel(`扫描失败：${e}`);"
+   }
+  ]
+ },
+ "扫描失败": {
+  "count": 2,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 156,
+    "quote": "\"",
+    "body": "扫描失败",
+    "start": 4832,
+    "end": 4838,
+    "src": "if (error) summary.textContent = \"扫描失败\";"
+   },
+   {
+    "line": 164,
+    "quote": "\"",
+    "body": "扫描失败",
+    "start": 5096,
+    "end": 5102,
+    "src": "list.appendChild(emptyState(\"globe\", \"扫描失败\", error, true));"
+   }
+  ]
+ },
+ "0 项": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 158,
+    "quote": "\"",
+    "body": "0 项",
+    "start": 4949,
+    "end": 4954,
+    "src": "else if (results.length === 0) summary.textContent = \"0 项\";"
+   }
+  ]
+ },
+ "§ 项": {
+  "count": 1,
+  "exprs": [
+   "results.length"
+  ],
+  "sites": [
+   {
+    "line": 159,
+    "quote": "`",
+    "body": "${results.length} 项",
+    "start": 4987,
+    "end": 5008,
+    "src": "else summary.textContent = `${results.length} 项`;"
+   }
+  ]
+ },
+ "正在遍历工作区文件": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 168,
+    "quote": "\"",
+    "body": "正在遍历工作区文件",
+    "start": 5203,
+    "end": 5214,
+    "src": "list.appendChild(emptyState(\"loading\", \"扫描中…\", \"正在遍历工作区文件\", true));"
+   }
+  ]
+ },
+ "未打开工作区": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 172,
+    "quote": "\"",
+    "body": "未打开工作区",
+    "start": 5309,
+    "end": 5317,
+    "src": "list.appendChild(emptyState(\"globe\", \"未打开工作区\", \"打开后此处列出 FastAPI / Flask 端点\", true));"
+   }
+  ]
+ },
+ "打开后此处列出 FastAPI / Flask 端点": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 172,
+    "quote": "\"",
+    "body": "打开后此处列出 FastAPI / Flask 端点",
+    "start": 5319,
+    "end": 5347,
+    "src": "list.appendChild(emptyState(\"globe\", \"未打开工作区\", \"打开后此处列出 FastAPI / Flask 端点\", true));"
+   }
+  ]
+ },
+ "没有端点": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 178,
+    "quote": "\"",
+    "body": "没有端点",
+    "start": 5515,
+    "end": 5521,
+    "src": "emptyState(\"globe\", \"没有端点\", \"暂无 @app.get / @router.get / @app.route 声明（FastAPI / Flask 项目）\", true),"
+   }
+  ]
+ },
+ "暂无 @app.get / @router.get / @app.route 声明（FastAPI / Flask 项目）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 178,
+    "quote": "\"",
+    "body": "暂无 @app.get / @router.get / @app.route 声明（FastAPI / Flask 项目）",
+    "start": 5523,
+    "end": 5586,
+    "src": "emptyState(\"globe\", \"没有端点\", \"暂无 @app.get / @router.get / @app.route 声明（FastAPI / Flask 项目）\", true),"
+   }
+  ]
+ },
+ "在浏览器打开": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 234,
+    "quote": "\"",
+    "body": "在浏览器打开",
+    "start": 7370,
+    "end": 7378,
+    "src": "open.setAttribute(\"aria-label\", \"在浏览器打开\");"
+   }
+  ]
+ },
+ "在浏览器打开（需服务运行中）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 235,
+    "quote": "\"",
+    "body": "在浏览器打开（需服务运行中）",
+    "start": 7402,
+    "end": 7418,
+    "src": "open.dataset.tip = \"在浏览器打开（需服务运行中）\";"
+   }
+  ]
+ },
+ "复制完整 URL": {
+  "count": 2,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 261,
+    "quote": "\"",
+    "body": "复制完整 URL",
+    "start": 8138,
+    "end": 8148,
+    "src": "copy.setAttribute(\"aria-label\", \"复制完整 URL\");"
+   },
+   {
+    "line": 262,
+    "quote": "\"",
+    "body": "复制完整 URL",
+    "start": 8172,
+    "end": 8182,
+    "src": "copy.dataset.tip = \"复制完整 URL\";"
+   }
+  ]
+ },
+ "服务未运行：无法拼出完整 URL（可先复制路由）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 267,
+    "quote": "\"",
+    "body": "服务未运行：无法拼出完整 URL（可先复制路由）",
+    "start": 8319,
+    "end": 8345,
+    "src": "toast(\"服务未运行：无法拼出完整 URL（可先复制路由）\", \"info\");"
+   }
+  ]
+ },
+ "已复制：": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 271,
+    "quote": "\"",
+    "body": "已复制：",
+    "start": 8452,
+    "end": 8458,
+    "src": ".then(() => toast(\"已复制：\" + url, \"success\"))"
+   }
+  ]
+ },
+ "复制": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 272,
+    "quote": "\"",
+    "body": "复制",
+    "start": 8508,
+    "end": 8512,
+    "src": ".catch((e) => toastFail(\"复制\", e));"
+   }
+  ]
+ }
+}

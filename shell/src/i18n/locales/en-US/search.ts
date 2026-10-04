@@ -1,0 +1,45 @@
+// English (US) 语言包「search 域」：key 与 zh-CN/search.ts 一一对应，Record<SearchKey, string> 在编译期强校验漏译。
+import type { SearchKey } from "../zh-CN/search";
+
+export const search: Record<SearchKey, string> = {
+  // ---- search.empty ----
+  "search.empty.scanned.one": "Scanned {count} files; try another keyword",
+  "search.empty.scanned.other": "Scanned {count} files; try another keyword",
+  "search.empty.skipped": ", skipped {skipped}: {binary} binary / {large} oversized",
+  "search.empty.title": "No results",
+  "search.empty.truncated": " · results truncated; refine the keyword",
+  // ---- search.filter ----
+  "search.filter.invalidMask": "Invalid file mask: {error}",
+  "search.filter.invalidRegex": "Invalid regular expression: {error}",
+  // ---- search.hint ----
+  "search.hint.enter": "Type a keyword and press Enter to search",
+  "search.hint.failed": "Search failed: {error}",
+  "search.hint.searching": "Searching…",
+  // ---- search ----
+  "search.loadMore": "Load more (showing {shown} / {total})",
+  // ---- search.qo ----
+  "search.qo.commandSub": "command",
+  "search.qo.gotoColumn": " column {column}",
+  "search.qo.gotoLine": "Go to line {line}{column}",
+  "search.qo.lineFormat": "Format: line number or line:column ({total} lines in the current file)",
+  "search.qo.linePrompt": "Enter a line number",
+  "search.qo.lineWithTotal": "{total} lines in the current file; Enter to jump",
+  "search.qo.listAria": "Search results",
+  "search.qo.mixedHint": "Mixed search for files / symbols / commands; :line jumps directly",
+  "search.qo.noMatchHint": "Try another keyword, or use :line to jump directly",
+  "search.qo.noMatches": "No matches",
+  "search.qo.noWorkspaceHint": "Open a workspace to search its files",
+  "search.qo.phAll": "Search files / symbols / commands (supports :line)",
+  "search.qo.phCommands": "Type a command name (Ctrl+Shift+P)",
+  "search.qo.phFiles": "Search file names (supports :line)",
+  "search.qo.phLine": "Line number or line:column; Enter to jump, Esc to close",
+  "search.qo.phSymbol": "Search symbols (opened files + workspace; Enter to jump)",
+  "search.qo.startTyping": "Start typing to search",
+  // ---- search.recent ----
+  "search.recent.emptyHint": "Recently opened files will be listed here",
+  "search.recent.noMatch": "No matching files",
+  "search.recent.noMatchHint": "Try another keyword, or open a few files first",
+  "search.recent.noWorkspace": "No workspace open",
+  "search.recent.ph": "Filter by file name; ↑↓ to select, Enter to open, Esc to close",
+  "search.recent.title": "Recently opened files",
+};

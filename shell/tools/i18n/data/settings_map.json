@@ -1,0 +1,152 @@
+{
+ "autosave 自动保存": {
+  "key": "settings.kw.autosave"
+ },
+ "bracket colorization 括号颜色": {
+  "key": "settings.kw.bracketColors"
+ },
+ "cache webview 清理缓存": {
+  "key": "settings.kw.cleanWebview"
+ },
+ "data directory 数据目录": {
+  "key": "settings.kw.dataOpen"
+ },
+ "debug just my code 调试步进": {
+  "key": "settings.kw.debugJmc"
+ },
+ "font family 字体": {
+  "key": "settings.kw.fontFamily"
+ },
+ "font size 字号": {
+  "key": "settings.kw.font"
+ },
+ "format ruff 格式化": {
+  "key": "settings.kw.formatOnSave"
+ },
+ "imports isort 整理导入": {
+  "key": "settings.kw.optimizeImports"
+ },
+ "indent guides 参考线": {
+  "key": "settings.kw.indentGuides"
+ },
+ "indent spaces 缩进空格": {
+  "key": "settings.kw.insertSpaces"
+ },
+ "intel runtime 运行时智能": {
+  "key": "settings.kw.intel"
+ },
+ "ligatures 连字": {
+  "key": "settings.kw.ligatures"
+ },
+ "log directory 日志目录": {
+  "key": "settings.kw.logOpen"
+ },
+ "log level 日志级别": {
+  "key": "settings.kw.logLevel"
+ },
+ "log logging 日志": {
+  "key": "settings.kw.logEnabled"
+ },
+ "log rotate 日志轮转": {
+  "key": "settings.kw.logKeep"
+ },
+ "log stdout 日志输出": {
+  "key": "settings.kw.logStdout"
+ },
+ "logs 清理日志": {
+  "key": "settings.kw.cleanLogs"
+ },
+ "lsp engine pyrefly basedpyright 引擎": {
+  "key": "settings.kw.engine"
+ },
+ "migrate 迁移": {
+  "key": "settings.kw.migrate"
+ },
+ "minimap 小地图": {
+  "key": "settings.kw.minimap"
+ },
+ "motion animation 动画": {
+  "key": "settings.kw.reduceMotion"
+ },
+ "probe profiling 探针": {
+  "key": "settings.kw.probe"
+ },
+ "pypi mirror pip 源": {
+  "key": "settings.kw.pypiIndex"
+ },
+ "ruff severity pycodestyle E 风格 级别 诊断": {
+  "key": "settings.kw.ruffSeverityE"
+ },
+ "ruff severity pycodestyle W 警告 级别 诊断": {
+  "key": "settings.kw.ruffSeverityW"
+ },
+ "ruff severity pyflakes F 级别 诊断": {
+  "key": "settings.kw.ruffSeverityF"
+ },
+ "storage usage 磁盘占用": {
+  "key": "settings.kw.storageRefresh"
+ },
+ "storage 磁盘": {
+  "key": "settings.kw.storageOpen"
+ },
+ "tab indent 缩进": {
+  "key": "settings.kw.tabSize"
+ },
+ "terminal cwd 终端目录": {
+  "key": "settings.kw.terminalCwd"
+ },
+ "terminal shell pwsh cmd powershell 终端": {
+  "key": "settings.kw.terminalShell"
+ },
+ "theme 主题 appearance": {
+  "key": "settings.kw.themePicker"
+ },
+ "uv cache 深度清理": {
+  "key": "settings.kw.uvClean"
+ },
+ "uv cache 缓存": {
+  "key": "settings.kw.uvPrune"
+ },
+ "wrap 换行": {
+  "key": "settings.kw.wordWrap"
+ },
+ "保存设置": {
+  "key": "settings.failSave"
+ },
+ "启动运行时智能层": {
+  "key": "settings.failStartIntel"
+ },
+ "命令提示符（cmd）": {
+  "key": "settings.shellCmd"
+ },
+ "字号 §": {
+  "key": "settings.statusFontSize",
+  "params": [
+   "size"
+  ]
+ },
+ "打开数据目录": {
+  "key": "settings.failOpenDataDir"
+ },
+ "打开日志目录": {
+  "key": "settings.failOpenLogDir"
+ },
+ "浅色": {
+  "key": "settings.theme.light"
+ },
+ "深色": {
+  "key": "settings.theme.dark"
+ },
+ "点击后直接按下要使用的组合键；Backspace 清除（留空 = 解绑）": {
+  "key": "settings.keybindTip"
+ },
+ "自动（PowerShell 优先，回退 cmd）": {
+  "key": "settings.shellAuto"
+ },
+ "设置加载失败，本次会话使用默认设置（改动可能无法保存）": {
+  "key": "settings.loadFailedToast"
+ },
+ "设置已保存": {
+  "key": "settings.saved"
+ }
+}

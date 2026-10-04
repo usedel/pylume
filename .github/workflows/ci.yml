@@ -1,0 +1,119 @@
+# Pylume CI（tech-debt #7 落地）
+#
+# 目标平台 Windows-only（Tauri 2 + NSIS / ConPTY / WebView2；probe 测试假定 Windows 路径），
+# 故两个 job 均跑 windows-latest。
+#
+# - test：4 个测试矩阵（前端 vitest + tsc 构建 / probe pytest / intel cargo test /
+#   shell LSP 桥 cargo test），每次 push 主干与 PR 自动跑——「CI 全绿才可合并」的护栏。
+#   注：主干分支名以 `git remote show origin` 的 HEAD 为准，本仓是 **master**
+#   （`origin/HEAD -> origin/master`）；此前此处写死 [main]，导致推主干零触发。
+# - package-smoke：打包（NSIS）+ bench 回归（冷启动 / 内存红线，红线断言语义见
+#   bench/collect-metrics.ps1），**打 tag 自动跑 + 手动触发**，发布前门禁。
+#   （P0-1 子项 4：此前仅 workflow_dispatch，等于"发布前必跑"全靠人记得手动点。）
+#
+# 真机层与低频红线在 nightly.yml（只告警不阻断），**不进本文件**——真机慢且不稳，
+#   混进 PR 门禁会被偶发失败淹没，护栏反而被绕过。
+#
+# 工具链版本对齐 ci/versions.toml（node 22 / python 3.13 / rust 1.96）。
+
+name: CI
+
+on:
+  push:
+    # 主干 = master（origin/HEAD -> origin/master）；保留 main 以防分支改名
+    branches: [master, main]
+    # 版本 tag：v*（如 v1.0.0）触发打包 + bench 烟测，作为发布前门禁
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: 测试矩阵（前端 / probe / intel / shell）
+    runs-on: windows-latest
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 安装 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: shell/package-lock.json
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: 安装 Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.96.0"
+
+      - name: 前端 vitest + tsc 构建
+        working-directory: shell
+        run: |
+          npm ci
+          npx vitest run
+          npm run build
+
+      # UI 视觉「高级感」专项门禁（docs/ui_premium_dev_plan.md §4 第 2 项）：
+      # 98 项 token 判定（单色相 / accent 九面 / 表面阶梯 / 阴影纪律 / 抬升面文字…），
+      # 退出码非 0 即失败。零第三方依赖，故无需安装步骤。
+      - name: UI token 门禁
+        run: python tools/ui/audit_tokens.py
+
+      - name: probe pytest
+        working-directory: probe
+        run: |
+          python -m pip install -e ".[dev]"
+          python -m pytest -q
+
+      - name: intel cargo test
+        working-directory: intel
+        run: cargo test
+
+      - name: shell/src-tauri cargo test（LSP 桥）
+        working-directory: shell/src-tauri
+        run: cargo test
+
+  package-smoke:
+    name: 打包 + bench 烟测
+    runs-on: windows-latest
+    needs: test
+    # 打 tag（v*）或手动触发时跑；普通主干 push / PR 不跑（避免每次提交都编译 NSIS）
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 安装 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: shell/package-lock.json
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: 安装 Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.96.0"
+
+      - name: 前端依赖
+        working-directory: shell
+        run: npm ci
+
+      - name: 打包（NSIS）
+        shell: pwsh
+        run: ./build-release.ps1 -SkipNpmInstall
+
+      - name: bench 回归（冷启动 / 内存红线）
+        shell: pwsh
+        run: ./bench/collect-metrics.ps1 -Runs 2

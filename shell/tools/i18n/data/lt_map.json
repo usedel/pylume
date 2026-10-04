@@ -1,0 +1,533 @@
+{
+ "$VAR$ 变量 · $END$ 终点 · $$ 字面 $": {
+  "key": "lt.bodyPlaceholder"
+ },
+ "<thead><tr><th>名称</th><th>表达式</th><th>默认值</th><th title=\"求值成功即跳过\">跳过</th></tr></thead>": {
+  "key": "lt.varsHead"
+ },
+ "@dataclass 类": {
+  "key": "lt.tpl.dataclass"
+ },
+ "BeautifulSoup 解析骨架": {
+  "key": "lt.tpl.bs4"
+ },
+ "Tab 直接展开": {
+  "key": "lt.tabExpandLabel"
+ },
+ "UA 池 + 随机 User-Agent（需 import random）": {
+  "key": "lt.tpl.ua"
+ },
+ "__init__ 方法": {
+  "key": "lt.tpl.init"
+ },
+ "__iter__ / __next__ 对": {
+  "key": "lt.tpl.iter"
+ },
+ "__repr__ 方法": {
+  "key": "lt.tpl.repr"
+ },
+ "async for 循环": {
+  "key": "lt.tpl.afor"
+ },
+ "async with 语句": {
+  "key": "lt.tpl.awith"
+ },
+ "async 函数定义": {
+  "key": "lt.tpl.adef"
+ },
+ "csv.DictWriter 写文件（需 import csv）": {
+  "key": "lt.tpl.csvw"
+ },
+ "for 循环": {
+  "key": "lt.tpl.for"
+ },
+ "for 遍历表达式": {
+  "key": "lt.tpl.postfixFor"
+ },
+ "httpx.AsyncClient 异步 GET（async with）": {
+  "key": "lt.tpl.hget"
+ },
+ "if / else 语句": {
+  "key": "lt.tpl.ife"
+ },
+ "if __name__ == '__main__'": {
+  "key": "lt.tpl.ifmain"
+ },
+ "if not 表达式:": {
+  "key": "lt.tpl.postfixElse"
+ },
+ "if 表达式:": {
+  "key": "lt.tpl.postfixIf"
+ },
+ "if 语句": {
+  "key": "lt.tpl.if"
+ },
+ "int(表达式)": {
+  "key": "lt.tpl.postfixInt"
+ },
+ "json.dump 写文件（ensure_ascii=False，需 import json）": {
+  "key": "lt.tpl.jsonw"
+ },
+ "lambda 表达式": {
+  "key": "lt.tpl.lambda"
+ },
+ "len(表达式)": {
+  "key": "lt.tpl.postfixLen"
+ },
+ "lxml etree + xpath 解析骨架（需 from lxml import etree）": {
+  "key": "lt.tpl.lxml"
+ },
+ "main 函数定义": {
+  "key": "lt.tpl.main"
+ },
+ "not 表达式": {
+  "key": "lt.tpl.postfixNot"
+ },
+ "print 调用": {
+  "key": "lt.tpl.print"
+ },
+ "print(表达式)": {
+  "key": "lt.tpl.postfixPrint"
+ },
+ "requests 代理字典（http/https）": {
+  "key": "lt.tpl.proxy"
+ },
+ "requests.Session + Retry 适配器（需导入 HTTPAdapter/Retry）": {
+  "key": "lt.tpl.reqsess"
+ },
+ "requests.get 请求骨架（含 raise_for_status）": {
+  "key": "lt.tpl.reqget"
+ },
+ "requests.post 请求骨架（JSON 体）": {
+  "key": "lt.tpl.reqpost"
+ },
+ "resp.json() 加载 + 取字段": {
+  "key": "lt.tpl.jsonld"
+ },
+ "return 表达式": {
+  "key": "lt.tpl.postfixReturn"
+ },
+ "soup.select CSS 选择 + 遍历（$ITEMS$ 镜像）": {
+  "key": "lt.tpl.css"
+ },
+ "str(表达式)": {
+  "key": "lt.tpl.postfixStr"
+ },
+ "try / except 块": {
+  "key": "lt.tpl.try"
+ },
+ "while 循环": {
+  "key": "lt.tpl.while"
+ },
+ "with 语句": {
+  "key": "lt.tpl.with"
+ },
+ "仅后缀模板：`.` 后的键，如 if": {
+  "key": "lt.postfixKeyPlaceholder"
+ },
+ "从左侧选择模板编辑，或点击「新建模板」": {
+  "key": "lt.editorHint"
+ },
+ "从该模板所属层删除「§」": {
+  "key": "lt.deleteFromLayer",
+  "params": [
+   "abbr"
+  ]
+ },
+ "作用域": {
+  "key": "lt.fieldScopes"
+ },
+ "保存失败：§": {
+  "key": "lt.saveFailed",
+  "params": [
+   "error"
+  ]
+ },
+ "保存模板": {
+  "key": "lt.save"
+ },
+ "全部分组": {
+  "key": "lt.groupAll"
+ },
+ "关闭后仅通过补全弹窗使用（关键字类缩写建议关闭）": {
+  "key": "lt.tabExpandOffTip"
+ },
+ "内置模板不可删除，只能禁用": {
+  "key": "lt.builtinNoDelete"
+ },
+ "函数": {
+  "key": "lt.scope.function"
+ },
+ "函数 docstring（Args / Returns）": {
+  "key": "lt.tpl.docf"
+ },
+ "函数定义": {
+  "key": "lt.tpl.def"
+ },
+ "分组": {
+  "key": "lt.fieldGroup"
+ },
+ "分组「§」下没有模板": {
+  "key": "lt.groupEmpty",
+  "params": [
+   "name"
+  ]
+ },
+ "分组名不能为空": {
+  "key": "lt.groupNameEmpty"
+ },
+ "删除": {
+  "key": "lt.delete"
+ },
+ "删除变量": {
+  "key": "lt.deleteVar"
+ },
+ "删除失败：§": {
+  "key": "lt.deleteFailed",
+  "params": [
+   "error"
+  ]
+ },
+ "包裹在 if 中": {
+  "key": "lt.tpl.surroundIf"
+ },
+ "包裹在 try / except 中": {
+  "key": "lt.tpl.surroundTry"
+ },
+ "包裹在 with 中": {
+  "key": "lt.tpl.surroundWith"
+ },
+ "单行 docstring": {
+  "key": "lt.tpl.doc"
+ },
+ "取消": {
+  "key": "lt.cancel"
+ },
+ "变量 § 表达式错误：§": {
+  "key": "lt.varExprError",
+  "params": [
+   "name",
+   "error"
+  ]
+ },
+ "变量名重复：§": {
+  "key": "lt.duplicateVarName",
+  "params": [
+   "name"
+  ]
+ },
+ "变量名非法：§": {
+  "key": "lt.invalidVarName",
+  "params": [
+   "name"
+  ]
+ },
+ "变量在下方声明；未声明的 $VAR$ 自动成为普通占位符": {
+  "key": "lt.bodyHint"
+ },
+ "变量（行序 = Tab 跳转序）": {
+  "key": "lt.varsTitle"
+ },
+ "名字位": {
+  "key": "lt.scope.name"
+ },
+ "后缀": {
+  "key": "lt.kind.postfix"
+ },
+ "后缀模板需要合法后缀键（`.` 后的键）": {
+  "key": "lt.needPostfixKey"
+ },
+ "后缀模板：`表达式.键` 触发，$EXPR$ 由表达式字面注入": {
+  "key": "lt.kindHintPostfix"
+ },
+ "后缀键": {
+  "key": "lt.fieldPostfixKey"
+ },
+ "启用": {
+  "key": "lt.stateEnable"
+ },
+ "如 logf": {
+  "key": "lt.abbrPlaceholder"
+ },
+ "导入 Live Templates": {
+  "key": "lt.importTitle"
+ },
+ "导入保存失败：§": {
+  "key": "lt.importSaveFailed",
+  "params": [
+   "error"
+  ]
+ },
+ "导入失败：不是合法的 PyCharm Live Templates XML（或无可解析模板）": {
+  "key": "lt.importInvalidXml"
+ },
+ "导入失败：文件不是合法的模板配置（Schema v2 / v1 / PyCharm XML）": {
+  "key": "lt.importInvalidConfig"
+ },
+ "导入完成：新增 §，覆盖 §§": {
+  "key": "lt.importDone",
+  "params": [
+   "added",
+   "replaced",
+   "note"
+  ]
+ },
+ "导出 Live Templates": {
+  "key": "lt.exportTitle"
+ },
+ "导出失败：§": {
+  "key": "lt.exportFailed",
+  "params": [
+   "error"
+  ]
+ },
+ "工作区": {
+  "key": "lt.originWorkspace"
+ },
+ "工作区层": {
+  "key": "lt.layerWorkspace"
+ },
+ "已保存 §（§）": {
+  "key": "lt.saved",
+  "params": [
+   "abbr",
+   "layer"
+  ]
+ },
+ "已删除 §（§）": {
+  "key": "lt.deleted",
+  "params": [
+   "abbr",
+   "layer"
+  ]
+ },
+ "已启用 §": {
+  "key": "lt.enabled",
+  "params": [
+   "abbr"
+  ]
+ },
+ "已导出到 §": {
+  "key": "lt.exportedTo",
+  "params": [
+   "path"
+  ]
+ },
+ "已将分组「§」重命名为「§」（§ 个模板）": {
+  "key": "lt.groupRenamed",
+  "params": [
+   "old",
+   "new",
+   "count"
+  ]
+ },
+ "已恢复内置 §": {
+  "key": "lt.restored",
+  "params": [
+   "abbr"
+  ]
+ },
+ "已禁用 §": {
+  "key": "lt.disabled",
+  "params": [
+   "abbr"
+  ]
+ },
+ "当前层没有可导出的模板": {
+  "key": "lt.nothingToExport"
+ },
+ "当前筛选结果为空，无可操作模板": {
+  "key": "lt.noFilteredTargets"
+ },
+ "恢复内置": {
+  "key": "lt.resetBuiltin"
+ },
+ "批量§完成：生效 § 个": {
+  "key": "lt.bulkDone",
+  "params": [
+   "action",
+   "changed"
+  ]
+ },
+ "描述": {
+  "key": "lt.fieldDesc"
+ },
+ "插入": {
+  "key": "lt.kind.normal"
+ },
+ "插入模板：缩写 + Tab 直接展开，或经补全弹窗插入": {
+  "key": "lt.kindHintNormal"
+ },
+ "文件头（自动填文件名/作者/日期）": {
+  "key": "lt.tpl.header"
+ },
+ "无匹配模板": {
+  "key": "lt.emptyList"
+ },
+ "未分组": {
+  "key": "lt.groupNone"
+ },
+ "未分组；输入名称以新建分组": {
+  "key": "lt.groupPlaceholder"
+ },
+ "未找到可删除的模板 §": {
+  "key": "lt.notFoundForDelete",
+  "params": [
+   "abbr"
+  ]
+ },
+ "模块": {
+  "key": "lt.scope.module"
+ },
+ "模板体": {
+  "key": "lt.fieldBody"
+ },
+ "模板体不能为空": {
+  "key": "lt.bodyEmpty"
+ },
+ "求值失败时的值": {
+  "key": "lt.defaultPlaceholder"
+ },
+ "添加变量": {
+  "key": "lt.addVar"
+ },
+ "点击启用": {
+  "key": "lt.tipEnable"
+ },
+ "点击禁用": {
+  "key": "lt.tipDisable"
+ },
+ "爬虫": {
+  "key": "lt.group.crawler"
+ },
+ "环绕": {
+  "key": "lt.kind.surround"
+ },
+ "环绕模板的模板体必须包含 $SELECTION$": {
+  "key": "lt.surroundNeedsSelection"
+ },
+ "环绕模板：模板体须含 $SELECTION$（承载选中代码），经 Ctrl+Alt+T 调用": {
+  "key": "lt.kindHintSurround"
+ },
+ "用双引号包裹": {
+  "key": "lt.tpl.surroundQuote"
+ },
+ "用户": {
+  "key": "lt.originUser"
+ },
+ "用户层": {
+  "key": "lt.layerUser"
+ },
+ "确定": {
+  "key": "lt.ok"
+ },
+ "禁用": {
+  "key": "lt.stateDisable"
+ },
+ "移除本层对该模板的覆盖/禁用": {
+  "key": "lt.resetTip"
+ },
+ "筛选内无可变更模板（§ 个被其他层禁用，请切换层）": {
+  "key": "lt.allBlocked",
+  "params": [
+   "blocked"
+  ]
+ },
+ "筛选内模板均已处于§状态": {
+  "key": "lt.alreadyInState",
+  "params": [
+   "state"
+  ]
+ },
+ "类": {
+  "key": "lt.scope.class"
+ },
+ "类 docstring（Attributes）": {
+  "key": "lt.tpl.docc"
+ },
+ "类型": {
+  "key": "lt.fieldKind"
+ },
+ "类定义（含 __init__）": {
+  "key": "lt.tpl.class"
+ },
+ "缩写": {
+  "key": "lt.fieldAbbr"
+ },
+ "缩写非法：仅允许字母/数字/点/下划线/连字符": {
+  "key": "lt.invalidAbbr"
+ },
+ "翻页 while 循环骨架（抓空即停）": {
+  "key": "lt.tpl.page"
+ },
+ "至少选择一个作用域": {
+  "key": "lt.needScope"
+ },
+ "至少选择一个适用位置": {
+  "key": "lt.needPosition"
+ },
+ "补全列表中的说明": {
+  "key": "lt.descPlaceholder"
+ },
+ "表达式": {
+  "key": "lt.scope.expression"
+ },
+ "表达式语法错误：§": {
+  "key": "lt.exprError",
+  "params": [
+   "error"
+  ]
+ },
+ "该模板被其他层禁用，请切换到对应层操作": {
+  "key": "lt.blockedSingle"
+ },
+ "语句": {
+  "key": "lt.scope.statement"
+ },
+ "说明": {
+  "key": "lt.tpl.argDescDefault"
+ },
+ "读取失败：§": {
+  "key": "lt.readFailed",
+  "params": [
+   "error"
+  ]
+ },
+ "适用位置": {
+  "key": "lt.fieldPositions"
+ },
+ "选择模板后方可删除": {
+  "key": "lt.selectToDelete"
+ },
+ "随机延时（礼貌抓取，需 import time/random）": {
+  "key": "lt.tpl.rsleep"
+ },
+ "（空）": {
+  "key": "lt.varNameEmpty"
+ },
+ "，§ 个本就§": {
+  "key": "lt.bulkNoop",
+  "params": [
+   "noop",
+   "action"
+  ]
+ },
+ "，§ 个被其他层禁用": {
+  "key": "lt.bulkBlocked",
+  "params": [
+   "blocked"
+  ]
+ },
+ "；§ 个表达式降级为默认值（详见控制台）": {
+  "key": "lt.importDowngraded",
+  "params": [
+   "count"
+  ]
+ },
+ "；§ 条非法条目被跳过": {
+  "key": "lt.importSkipped",
+  "params": [
+   "count"
+  ]
+ }
+}

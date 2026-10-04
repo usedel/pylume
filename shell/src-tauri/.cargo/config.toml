@@ -1,0 +1,14 @@
+# 构建配置：绕过 indexmap 1.9.3 在新版 rustc 下的特性探测缺陷。
+#
+# 背景：schemars 0.8.x 依赖 indexmap 1.9.x。indexmap 的 build.rs 逻辑是——
+#   CARGO_FEATURE_STD 存在 → autocfg::emit("has_std")      （直接用，不探测）
+#   否则                    → autocfg::emit_sysroot_crate("std")  （探测）
+# 而 emit_sysroot_crate 的探测在 rustc 1.96 下返回假，于是 has_std 未设置，
+# IndexMap 落到 `#[cfg(not(has_std))]` 分支、失去默认的 S 泛型参数，
+# 导致 schemars 的 `IndexMap<K, V>` 编译失败：
+#   error[E0107]: struct takes 3 generic arguments but 2 were supplied
+#
+# 这里直接声明 has_std，跳过那个失效的探测。indexmap 的 build.rs 自己会输出
+# `cargo:rustc-check-cfg=cfg(has_std)`，说明该 cfg 正是它预期的输入，不是 hack。
+[build]
+rustflags = ["--cfg", "has_std"]

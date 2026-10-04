@@ -1,0 +1,129 @@
+// English (US) 语言包「env 域」：key 与 zh-CN/env.ts 一一对应，Record<EnvKey, string> 在编译期强校验漏译。
+import type { EnvKey } from "../zh-CN/env";
+
+export const env: Record<EnvKey, string> = {
+  // ---- env.action ----
+  "env.action.browseInterpreter": "Browse interpreters…",
+  "env.action.createVenvBtn": "Create .venv",
+  "env.action.createVenvMenu": "Create .venv…",
+  "env.action.declare": "Declare in pyproject",
+  "env.action.install": "Install",
+  "env.action.installNow": "Install now",
+  "env.action.later": "Later",
+  "env.action.rebuild": "Rebuild",
+  "env.action.rebuildVenv": "Rebuild .venv…",
+  "env.action.uninstall": "Uninstall",
+  "env.action.upgrade": "Upgrade",
+  // ---- env ----
+  "env.autoInstallNoInterpreter": "No interpreter selected; cannot auto-install the package (click the interpreter icon in the status bar first, then retry)",
+  "env.bootstrapAsk": "Install now?",
+  "env.bootstrapBullet": "· {tool}",
+  "env.bootstrapEcho": "> Toolchain bootstrap: installing {tools}",
+  "env.bootstrapMissing": "The following tools are missing:",
+  "env.bootstrapOk": "Toolchain ready.",
+  "env.bootstrapPartial": "Installation finished, but some tools are still not visible. Restart Pylume and try again.",
+  "env.bootstrapWhy": "Completion, navigation and running all need them. They can be downloaded and installed to the user directory in one click (no system changes; requires internet).",
+  // ---- env.confirm ----
+  "env.confirm.cancel": "Cancel",
+  // ---- env ----
+  "env.createFailed": "Creating the environment failed: {error}",
+  "env.created": "Created .venv and set it as the current interpreter",
+  // ---- env.dialog ----
+  "env.dialog.bootstrapTitle": "Environment bootstrap",
+  "env.dialog.pickTitle": "Select Python interpreter",
+  "env.dialog.pythonFilter": "Python interpreter",
+  "env.dialog.rebuildTitle": "Rebuild .venv",
+  "env.dialog.uninstallTitle": "Uninstall packages",
+  "env.dialog.upgradeTitle": "Upgrade packages",
+  // ---- env.empty ----
+  "env.empty.noEnv": "No Python environment detected — completion, navigation, running and dependency management all depend on the environment (currently falling back to uv run, with limited capability).",
+  // ---- env.fail ----
+  "env.fail.install": "Install package",
+  "env.fail.pick": "Select interpreter",
+  "env.fail.refreshDiagnostics": "Refresh diagnostics",
+  "env.fail.setInterpreter": "Set interpreter",
+  // ---- env.group ----
+  "env.group.systemUv": "System / uv",
+  "env.group.workspace": "Workspace",
+  // ---- env ----
+  "env.installCanceled": "Installation of {module} canceled",
+  "env.installConfirm": "Continue?",
+  "env.installExitFailed": "Install failed (exit {code}); see the output above for details",
+  "env.installFailed": "Install failed: {error}",
+  "env.installIntoPrefix": "Install \"{module}\" into the current interpreter:",
+  "env.installed": "Installed {spec}",
+  "env.installedDiagnostics": "Installed {module} (refreshing diagnostics…)",
+  // ---- env.interp ----
+  "env.interp.defaultUvRun": "(default) uv run",
+  "env.interp.label": "{name} {hint}",
+  "env.interp.notSetHint": "No interpreter set — running falls back to uv run",
+  "env.interp.unspecified": "No interpreter set",
+  // ---- env ----
+  "env.invalidInterpreter": "\"{name}\" has no readable version and may not be a valid Python interpreter",
+  // ---- env.kind ----
+  "env.kind.manualPlain": "Manual",
+  "env.kind.manualVenv": "Manual{ver}",
+  "env.kind.workspaceVenv": "Workspace .venv{ver}",
+  // ---- env ----
+  "env.noEnvToast": "No Python environment detected; completion / running / dependency management are limited",
+  "env.noInterpreter": "No interpreter selected — pick one in the \"Environment\" dropdown above first",
+  // ---- env.pkg ----
+  "env.pkg.uninstallTip": "Uninstall {name}",
+  "env.pkg.upgradeAria": "Upgrade {name} to {to}",
+  "env.pkg.upgradeTip": "Upgrade {name}: {from} → {to}",
+  // ---- env.pkgs ----
+  "env.pkgs.loading": "Loading installed packages…",
+  "env.pkgs.noMatch": "No matching packages",
+  "env.pkgs.none": "(no installed packages)",
+  "env.pkgs.pickFirst": "Select an interpreter to see installed packages",
+  "env.pkgs.selectToUninstall": "Select to uninstall",
+  // ---- env ----
+  "env.rebuildConfirm": "Rebuild anyway?",
+  "env.rebuildExists": "A .venv already exists{note}.",
+  "env.rebuildHint": "The existing .venv{note} will be cleared and rebuilt",
+  // ---- env.rebuildPkgNote ----
+  "env.rebuildPkgNote.one": ", containing 1 installed package",
+  "env.rebuildPkgNote.other": ", containing {count} installed packages",
+  // ---- env.rebuildPkgNoteParen ----
+  "env.rebuildPkgNoteParen.one": " (1 installed package)",
+  "env.rebuildPkgNoteParen.other": " ({count} installed packages)",
+  // ---- env ----
+  "env.rebuildWarn": "Rebuilding clears the existing environment and creates an empty one; installed packages must be reinstalled (uv venv deletes and recreates existing environments by default).",
+  // ---- env.state ----
+  "env.state.creating": "Creating…",
+  "env.state.installing": "Installing…",
+  "env.state.uninstalling": "Uninstalling…",
+  "env.state.upgrading": "Upgrading…",
+  // ---- env ----
+  "env.switched": "Interpreter switched: {name} {ver}",
+  // ---- env.tag ----
+  "env.tag.driftTip": "Installed but not declared in pyproject (E3 drift) — declare it from the dependency health area",
+  "env.tag.installed": "installed",
+  "env.tag.needDownload": "download required",
+  "env.tag.notDeclared": "not declared",
+  // ---- env.tool ----
+  "env.tool.engine": "{name} (completion / navigation)",
+  "env.tool.uv": "uv (Python environment & running)",
+  // ---- env ----
+  "env.uninstallFailed": "Uninstall failed: {error}",
+  // ---- env.uninstallMsg ----
+  "env.uninstallMsg.one": "Uninstall 1 package: {names}?",
+  "env.uninstallMsg.other": "Uninstall {count} packages: {names}?",
+  // ---- env.uninstalled ----
+  "env.uninstalled.one": "Uninstalled 1 package",
+  "env.uninstalled.other": "Uninstalled {count} packages",
+  // ---- env ----
+  "env.upgradeExitFailed": "Upgrade failed (exit {code}); see the output above for details",
+  "env.upgradeFailed": "Upgrade failed: {error}",
+  // ---- env.upgradeMsg ----
+  "env.upgradeMsg.one": "Upgrade 1 outdated package?",
+  "env.upgradeMsg.other": "Upgrade {count} outdated packages?",
+  // ---- env.upgraded ----
+  "env.upgraded.one": "Upgraded 1 package",
+  "env.upgraded.other": "Upgraded {count} packages",
+  // ---- env ----
+  "env.venvDetected": "A workspace .venv was detected; set it as the current interpreter?",
+  // ---- env.versions ----
+  "env.versions.downloadHint": "If this Python version is not installed yet, uv will download it from the network (tens of MB; may take minutes on slow connections). Progress below…",
+  "env.versions.none": "No usable Python versions detected (make sure uv is installed)",
+};

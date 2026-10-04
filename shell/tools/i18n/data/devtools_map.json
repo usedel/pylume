@@ -1,0 +1,1138 @@
+{
+ " 值预览": {
+  "key": "devtools.jp.valueToggle"
+ },
+ "# 输入内容后点击「转换」": {
+  "key": "devtools.c2p.outPh"
+ },
+ "**JSON** · array · § 项": {
+  "key": "devtools.json.hoverArray",
+  "params": [
+   "count"
+  ]
+ },
+ "**JSON** · object · § 键 · § 层": {
+  "key": "devtools.json.hoverObject",
+  "params": [
+   "keys",
+   "depth"
+  ]
+ },
+ ". 匹配换行符 (DOTALL)": {
+  "key": "devtools.rx.flagS"
+ },
+ "0 或 1 次": {
+  "key": "devtools.rx.quant01"
+ },
+ "0 次或多次": {
+  "key": "devtools.rx.quant0"
+ },
+ "1 次或多次": {
+  "key": "devtools.rx.quant1"
+ },
+ "12 小时制小时 (01-12)": {
+  "key": "devtools.fmt.code.I"
+ },
+ "1234.5678 或 [\"a\", 1] 或 {\"x\": 1}": {
+  "key": "devtools.fmt.samplePh"
+ },
+ "2 空格": {
+  "key": "devtools.jsonfmt.indent2"
+ },
+ "24 小时制小时 (00-23)": {
+  "key": "devtools.fmt.code.H"
+ },
+ "4 空格": {
+  "key": "devtools.jsonfmt.indent4"
+ },
+ "CJK 字数：": {
+  "key": "devtools.wc.cjk"
+ },
+ "HSL 逆推格式：h, s, l（如 210, 90, 55）": {
+  "key": "devtools.color.hslFormatErr"
+ },
+ "HSL 逆推（h,s,l）：": {
+  "key": "devtools.color.hslLabel"
+ },
+ "HTML 标签": {
+  "key": "devtools.rx.exHtml"
+ },
+ "ISO 周号": {
+  "key": "devtools.fmt.code.V"
+ },
+ "ISO 周年份": {
+  "key": "devtools.fmt.code.G"
+ },
+ "ISO 星期 (1=周一)": {
+  "key": "devtools.fmt.code.u"
+ },
+ "JSON 解析失败：§": {
+  "key": "devtools.common.jsonParseFailed",
+  "params": [
+   "msg"
+  ]
+ },
+ "Python 爬虫实战": {
+  "key": "devtools.jp.sampleTitle1"
+ },
+ "SHA-256 计算失败：§": {
+  "key": "devtools.hash.shaFailed",
+  "params": [
+   "msg"
+  ]
+ },
+ "UTC 偏移 (+0800)": {
+  "key": "devtools.fmt.code.z"
+ },
+ "UUID 列表将显示在这里": {
+  "key": "devtools.uuid.outPh"
+ },
+ "[§-§] 字符区间倒置（起点码位大于终点）": {
+  "key": "devtools.rx.intervalInvert",
+  "params": [
+   "lo",
+   "hi"
+  ]
+ },
+ "^ $ 匹配行首行尾 (MULTILINE)": {
+  "key": "devtools.rx.flagM"
+ },
+ "args 序列化失败：§": {
+  "key": "devtools.eval.argsSerializeFailed",
+  "params": [
+   "msg"
+  ]
+ },
+ "cookies 须为 dict 字面量": {
+  "key": "devtools.p2c.cookiesDict"
+ },
+ "data 须为字符串或 dict 字面量": {
+  "key": "devtools.p2c.dataType"
+ },
+ "dict 的键须为字符串字面量": {
+  "key": "devtools.p2c.dictKey"
+ },
+ "headers 须为 dict 字面量": {
+  "key": "devtools.p2c.headersDict"
+ },
+ "logger 名": {
+  "key": "devtools.fmt.field.name"
+ },
+ "logging 格式": {
+  "key": "devtools.fmt.modeLogging"
+ },
+ "params 须为 dict 字面量": {
+  "key": "devtools.p2c.paramsDict"
+ },
+ "query/headers 的值须为字符串或数字字面量": {
+  "key": "devtools.p2c.scalarOnly"
+ },
+ "re.X：忽略空白与 # 后注释": {
+  "key": "devtools.rx.xHint"
+ },
+ "secureRandomInt: n=§ 非法": {
+  "key": "devtools.textfns.badRandom",
+  "params": [
+   "n"
+  ]
+ },
+ "timeout 须为数字字面量": {
+  "key": "devtools.p2c.timeoutNum"
+ },
+ "§-§-§ §:§:§ 周§": {
+  "key": "devtools.pure.readable",
+  "params": [
+   "y",
+   "mo",
+   "d",
+   "h",
+   "mi",
+   "s",
+   "w"
+  ]
+ },
+ "…（仅显示前 20 段）": {
+  "key": "devtools.fmt.truncated20"
+ },
+ "…（仅显示前 24 段）": {
+  "key": "devtools.rx.truncated24"
+ },
+ "⚠ 含未知格式码。§": {
+  "key": "devtools.fmt.unknownWarn",
+  "params": [
+   "hint"
+  ]
+ },
+ "⚠ 源码中不是 raw 字符串：\\\\d 请写成 r\"\\\\d\"": {
+  "key": "devtools.rx.rawHint"
+ },
+ "⚠ 非 raw 字符串：建议写作 \\`r\"…\"\\`": {
+  "key": "devtools.rx.nonRawHint"
+ },
+ "一": {
+  "key": "devtools.pure.wdMon"
+ },
+ "三": {
+  "key": "devtools.pure.wdWed"
+ },
+ "两位年份": {
+  "key": "devtools.fmt.code.y"
+ },
+ "两位日期 (01-31)": {
+  "key": "devtools.fmt.code.d"
+ },
+ "两位月份 (01-12)": {
+  "key": "devtools.fmt.code.m"
+ },
+ "二": {
+  "key": "devtools.pure.wdTue"
+ },
+ "二进制": {
+  "key": "devtools.fmt.type.b"
+ },
+ "二进制：": {
+  "key": "devtools.radix.bin"
+ },
+ "五": {
+  "key": "devtools.pure.wdFri"
+ },
+ "仅 ASCII 匹配 (ASCII)": {
+  "key": "devtools.rx.flagA"
+ },
+ "仅显示前 § 处（共 §）": {
+  "key": "devtools.rx.truncated",
+  "params": [
+   "cap",
+   "total"
+  ]
+ },
+ "任意字符（含换行，re.S）": {
+  "key": "devtools.rx.anyDotall"
+ },
+ "会变成控制字符（如 \\\\b → 退格），正则语义已丢失": {
+  "key": "devtools.rx.ctrlChar"
+ },
+ "位置": {
+  "key": "devtools.rx.colPos"
+ },
+ "保留空行": {
+  "key": "devtools.sort.keepEmpty"
+ },
+ "倒置": {
+  "key": "devtools.sort.reverse"
+ },
+ "值": {
+  "key": "devtools.jp.value"
+ },
+ "八进制": {
+  "key": "devtools.fmt.type.o"
+ },
+ "八进制：": {
+  "key": "devtools.radix.oct"
+ },
+ "六": {
+  "key": "devtools.pure.wdSat"
+ },
+ "其他": {
+  "key": "devtools.panel.other"
+ },
+ "内容不来自编辑器字面量": {
+  "key": "devtools.rx.tipNotFromEditor"
+ },
+ "函数名": {
+  "key": "devtools.fmt.field.funcName"
+ },
+ "分组": {
+  "key": "devtools.rx.colGroups"
+ },
+ "分组结束": {
+  "key": "devtools.rx.groupEnd"
+ },
+ "分钟 (00-59)": {
+  "key": "devtools.fmt.code.M"
+ },
+ "切换输出大小写": {
+  "key": "devtools.hash.toggleCase"
+ },
+ "前导 0 填充": {
+  "key": "devtools.fmt.zeroPad"
+ },
+ "前瞻断言（不消耗字符）": {
+  "key": "devtools.rx.lookahead"
+ },
+ "前缀形式 (0x / 0b)": {
+  "key": "devtools.fmt.altForm"
+ },
+ "剪贴板为空": {
+  "key": "devtools.common.clipboardEmpty"
+ },
+ "剪贴板为空或读取失败": {
+  "key": "devtools.c2p.clipboardFailed"
+ },
+ "匹配": {
+  "key": "devtools.rx.match"
+ },
+ "十六进制大写": {
+  "key": "devtools.fmt.type.X"
+ },
+ "十六进制小写": {
+  "key": "devtools.fmt.type.x"
+ },
+ "十六进制：": {
+  "key": "devtools.radix.hex"
+ },
+ "十进制整数": {
+  "key": "devtools.fmt.type.d"
+ },
+ "十进制：": {
+  "key": "devtools.radix.dec"
+ },
+ "千分位分隔": {
+  "key": "devtools.fmt.grouping"
+ },
+ "升序": {
+  "key": "devtools.sort.asc"
+ },
+ "单词字符 (字母/数字/下划线)": {
+  "key": "devtools.rx.wordChars"
+ },
+ "单词边界": {
+  "key": "devtools.rx.wordBoundary"
+ },
+ "占位符": {
+  "key": "devtools.fmt.placeholder"
+ },
+ "压缩": {
+  "key": "devtools.jsonfmt.minify"
+ },
+ "原文（A）…": {
+  "key": "devtools.diff.aPh"
+ },
+ "去重": {
+  "key": "devtools.sort.dedupe"
+ },
+ "反向引用第 § 组": {
+  "key": "devtools.rx.backrefN",
+  "params": [
+   "n"
+  ]
+ },
+ "反向引用（命名/编号）": {
+  "key": "devtools.rx.backref"
+ },
+ "可读时间": {
+  "key": "devtools.ts.readablePh"
+ },
+ "后顾断言（不消耗字符）": {
+  "key": "devtools.rx.lookbehind"
+ },
+ "周号（周一为一周开始）": {
+  "key": "devtools.fmt.code.W"
+ },
+ "周号（周日为一周开始）": {
+  "key": "devtools.fmt.code.U"
+ },
+ "命名组 \"§\" 重复定义（此前位于位置 §）": {
+  "key": "devtools.rx.dupNamedGroup",
+  "params": [
+   "name",
+   "pos"
+  ]
+ },
+ "命名组「§」开始（可用 \\\\g<§> 引用）": {
+  "key": "devtools.rx.namedGroup",
+  "params": [
+   "name",
+   "ref"
+  ]
+ },
+ "命名组反向引用": {
+  "key": "devtools.rx.namedBackref"
+ },
+ "哈希值将显示在这里": {
+  "key": "devtools.hash.outPh"
+ },
+ "哈希算法": {
+  "key": "devtools.hash.algo"
+ },
+ "四": {
+  "key": "devtools.pure.wdThu"
+ },
+ "四位年份": {
+  "key": "devtools.fmt.code.Y"
+ },
+ "在格式串工具中打开：右键 →「在格式串工具中打开」/ 编辑器 lens": {
+  "key": "devtools.fmt.openTool"
+ },
+ "在测试器中打开：右键 →「在正则测试器中打开」/ `Ctrl+Alt+R`": {
+  "key": "devtools.rx.openTester"
+ },
+ "复制": {
+  "key": "devtools.common.copy"
+ },
+ "复制值": {
+  "key": "devtools.jp.copyValue"
+ },
+ "复制失败": {
+  "key": "devtools.common.copyFailed"
+ },
+ "复制路径": {
+  "key": "devtools.jp.copyPath"
+ },
+ "多余的右括号 )": {
+  "key": "devtools.rx.extraCloseParen"
+ },
+ "大写": {
+  "key": "devtools.common.uppercase"
+ },
+ "大写 A-Z": {
+  "key": "devtools.pw.upper"
+ },
+ "失败": {
+  "key": "devtools.common.failed"
+ },
+ "如 1760985600": {
+  "key": "devtools.ts.tsPh"
+ },
+ "如 255 / 0xff / 0b1010 / 0o17（下划线分隔可选）": {
+  "key": "devtools.radix.inputPh"
+ },
+ "字段 §": {
+  "key": "devtools.fmt.fieldLabel",
+  "params": [
+   "name"
+  ]
+ },
+ "字符串 (str)": {
+  "key": "devtools.fmt.type.s"
+ },
+ "字符串开头锚点": {
+  "key": "devtools.rx.anchorStart"
+ },
+ "字符串末尾锚点": {
+  "key": "devtools.rx.anchorEnd"
+ },
+ "字符数（不含空白）：": {
+  "key": "devtools.wc.charsNoSpace"
+ },
+ "字符数（含空白）：": {
+  "key": "devtools.wc.chars"
+ },
+ "字符类 [ 未闭合": {
+  "key": "devtools.rx.classUnclosed"
+ },
+ "字符类（匹配其中任一字符）": {
+  "key": "devtools.rx.charClass"
+ },
+ "字面量": {
+  "key": "devtools.lib.literal"
+ },
+ "字面量 %": {
+  "key": "devtools.fmt.code.pct"
+ },
+ "字面量 {": {
+  "key": "devtools.lib.literalLBrace"
+ },
+ "字面量 }": {
+  "key": "devtools.fmt.literalRBrace"
+ },
+ "完整日期时间": {
+  "key": "devtools.fmt.code.c"
+ },
+ "定点小数": {
+  "key": "devtools.fmt.type.f"
+ },
+ "定点小数 (inf/nan 大写)": {
+  "key": "devtools.fmt.type.F"
+ },
+ "宽度 §": {
+  "key": "devtools.fmt.width",
+  "params": [
+   "width"
+  ]
+ },
+ "对比": {
+  "key": "devtools.diff.run"
+ },
+ "对齐 §（填充 §）": {
+  "key": "devtools.fmt.align",
+  "params": [
+   "align",
+   "fill"
+  ]
+ },
+ "小写": {
+  "key": "devtools.caseconvert.lower"
+ },
+ "小写 a-z": {
+  "key": "devtools.pw.lower"
+ },
+ "工具加载失败": {
+  "key": "devtools.panel.loadFailed"
+ },
+ "差异将显示在这里（+ 新增 / - 删除）": {
+  "key": "devtools.diff.outPh"
+ },
+ "已复制": {
+  "key": "devtools.common.copied"
+ },
+ "已复制当前匹配": {
+  "key": "devtools.rx.copiedMatch"
+ },
+ "已插入": {
+  "key": "devtools.common.inserted"
+ },
+ "已替换": {
+  "key": "devtools.rx.replaced"
+ },
+ "已粘贴": {
+  "key": "devtools.common.pasted"
+ },
+ "已解析": {
+  "key": "devtools.jp.parsed"
+ },
+ "已转换": {
+  "key": "devtools.c2p.converted"
+ },
+ "常见字段：%(asctime)s %(levelname)s %(name)s %(message)s": {
+  "key": "devtools.fmt.hintLogging"
+ },
+ "常见码：%Y 年 %m 月 %d 日 %H 时 %M 分 %S 秒": {
+  "key": "devtools.fmt.hintStrftime"
+ },
+ "常见类型：d 整数 · f 定点 · s 字符串 · e 科学计数 · % 百分比": {
+  "key": "devtools.fmt.hintFormat"
+ },
+ "年内天数 (001-366)": {
+  "key": "devtools.fmt.code.j"
+ },
+ "开发工具": {
+  "key": "devtools.panel.title"
+ },
+ "强制符号 (+/-)": {
+  "key": "devtools.fmt.signPlus"
+ },
+ "当前 Unix 时间戳：": {
+  "key": "devtools.ts.nowLabel"
+ },
+ "当前靠 CPython 对未知转义的容错保留，正式写法应为 raw 串": {
+  "key": "devtools.rx.fallbackKept"
+ },
+ "微秒 (6 位)": {
+  "key": "devtools.fmt.code.f"
+ },
+ "忽略大小写": {
+  "key": "devtools.sort.ignoreCase"
+ },
+ "忽略大小写 (IGNORECASE)": {
+  "key": "devtools.rx.flagI"
+ },
+ "忽略空白与 # 注释 (VERBOSE)": {
+  "key": "devtools.rx.flagX"
+ },
+ "悬空 %（后面没有格式码）": {
+  "key": "devtools.fmt.danglingPct"
+ },
+ "悬空反斜杠": {
+  "key": "devtools.rx.danglingBackslash"
+ },
+ "或（左右任选一支）": {
+  "key": "devtools.rx.alt"
+ },
+ "把修改后的模式写回编辑器中的字面量": {
+  "key": "devtools.rx.tipWriteback"
+ },
+ "括号 ( 未闭合": {
+  "key": "devtools.rx.parenUnclosed"
+ },
+ "括号未闭合，无法解析调用": {
+  "key": "devtools.p2c.unclosed"
+ },
+ "排序模式": {
+  "key": "devtools.sort.mode"
+ },
+ "排除易混字符": {
+  "key": "devtools.pw.excludeSimilar"
+ },
+ "插入到当前编辑器": {
+  "key": "devtools.common.insertEditorTip"
+ },
+ "插入编辑器": {
+  "key": "devtools.common.insertEditor"
+ },
+ "改文（B）…": {
+  "key": "devtools.diff.bPh"
+ },
+ "数字": {
+  "key": "devtools.rx.exNum"
+ },
+ "数字 0-9": {
+  "key": "devtools.pw.digits"
+ },
+ "数字 format": {
+  "key": "devtools.fmt.modeFormat"
+ },
+ "数字字符 (0-9)": {
+  "key": "devtools.rx.digitClass"
+ },
+ "数量（1-100）：": {
+  "key": "devtools.uuid.countLabel"
+ },
+ "文件名": {
+  "key": "devtools.fmt.field.filename"
+ },
+ "文件完整路径": {
+  "key": "devtools.fmt.field.pathname"
+ },
+ "文本过大（行列积超 2500 万）": {
+  "key": "devtools.textfns.tooLarge"
+ },
+ "无内容": {
+  "key": "devtools.common.noContent"
+ },
+ "无匹配工具": {
+  "key": "devtools.panel.noMatch"
+ },
+ "无匹配（是否忘了 re.I？^$ 锚点？match 只从头匹配？）": {
+  "key": "devtools.rx.noMatch"
+ },
+ "无打开文件": {
+  "key": "devtools.common.noFileOpen"
+ },
+ "无法识别的数字（支持 0x/0b/0o 前缀与十进制）": {
+  "key": "devtools.radix.badNumber"
+ },
+ "无法识别的时间戳（应为 10 位秒或 13 位毫秒数字）": {
+  "key": "devtools.ts.badTimestamp"
+ },
+ "无法识别的颜色（形如 #f80 / #ff8000 / #ff8000cc）": {
+  "key": "devtools.color.badColor"
+ },
+ "日": {
+  "key": "devtools.pure.wdSun"
+ },
+ "日志消息": {
+  "key": "devtools.fmt.field.message"
+ },
+ "日期": {
+  "key": "devtools.rx.exDate"
+ },
+ "日期 strftime": {
+  "key": "devtools.fmt.modeStrftime"
+ },
+ "时区名": {
+  "key": "devtools.fmt.code.Z"
+ },
+ "时间戳 (秒)": {
+  "key": "devtools.fmt.field.created"
+ },
+ "时间戳（秒/毫秒自动识别）：": {
+  "key": "devtools.ts.inLabel"
+ },
+ "时间（默认 2026-09-27 10:30:15,123）": {
+  "key": "devtools.fmt.field.asctime"
+ },
+ "星期全名": {
+  "key": "devtools.fmt.code.A"
+ },
+ "星期数字 (0=周日)": {
+  "key": "devtools.fmt.code.w"
+ },
+ "星期缩写": {
+  "key": "devtools.fmt.code.a"
+ },
+ "暂不支持的实参 \"§\"（仅 params/headers/json/data/cookies/timeout）": {
+  "key": "devtools.p2c.unsupportedKwarg",
+  "params": [
+   "name"
+  ]
+ },
+ "替换": {
+  "key": "devtools.rx.sub"
+ },
+ "替换失败": {
+  "key": "devtools.rx.replaceFailed"
+ },
+ "替换字面量": {
+  "key": "devtools.rx.replaceLiteral"
+ },
+ "最近使用": {
+  "key": "devtools.panel.recent"
+ },
+ "月份全名": {
+  "key": "devtools.fmt.code.B"
+ },
+ "月份缩写": {
+  "key": "devtools.fmt.code.b"
+ },
+ "未在命令中识别到 URL": {
+  "key": "devtools.c2p.noUrl"
+ },
+ "未打开工作区": {
+  "key": "devtools.eval.noWorkspace"
+ },
+ "未找到可用 Python 解释器": {
+  "key": "devtools.eval.noInterpreterFallback"
+ },
+ "未知格式码 %§": {
+  "key": "devtools.fmt.unknownCode",
+  "params": [
+   "code"
+  ]
+ },
+ "未知格式码「§」：§": {
+  "key": "devtools.fmt.diagUnknown",
+  "params": [
+   "token",
+   "desc"
+  ]
+ },
+ "未知格式类型 \"§\"（常见：d f s e %）": {
+  "key": "devtools.fmt.unknownType",
+  "params": [
+   "type"
+  ]
+ },
+ "未知脚本错误": {
+  "key": "devtools.eval.unknownScriptError"
+ },
+ "未知记录字段 \"§\"（logging 只认 LogRecord 已有字段）": {
+  "key": "devtools.fmt.unknownField",
+  "params": [
+   "field"
+  ]
+ },
+ "未识别到 URL 字面量实参": {
+  "key": "devtools.p2c.noUrlArg"
+ },
+ "未识别到 requests / httpx 调用": {
+  "key": "devtools.p2c.noCall"
+ },
+ "未输入": {
+  "key": "devtools.common.emptyInput"
+ },
+ "未配置工作区解释器，无法预览（速查表与分段解释仍可用）——可在状态栏选择解释器": {
+  "key": "devtools.fmt.noInterpreter"
+ },
+ "未配置工作区解释器，无法验证匹配（模式解释仍可用）": {
+  "key": "devtools.rx.noInterpreter"
+ },
+ "未闭合的 {": {
+  "key": "devtools.fmt.unclosedBrace"
+ },
+ "本地化数字": {
+  "key": "devtools.fmt.type.n"
+ },
+ "本地日期": {
+  "key": "devtools.fmt.code.x"
+ },
+ "本地时间": {
+  "key": "devtools.fmt.code.X"
+ },
+ "标题": {
+  "key": "devtools.caseconvert.title"
+ },
+ "样本 1234.5678": {
+  "key": "devtools.fmt.sampleNum"
+ },
+ "样本 2026-09-26 14:03:11": {
+  "key": "devtools.fmt.sampleTs"
+ },
+ "样本记录": {
+  "key": "devtools.fmt.sampleRec"
+ },
+ "根模型名（默认 Model）": {
+  "key": "devtools.j2m.rootNamePh"
+ },
+ "格式串模式": {
+  "key": "devtools.fmt.mode"
+ },
+ "格式化": {
+  "key": "devtools.jsonfmt.beautify"
+ },
+ "格式无效": {
+  "key": "devtools.fmt.invalid"
+ },
+ "格式规范": {
+  "key": "devtools.fmt.modeSpec"
+ },
+ "模块名 (不含 .py)": {
+  "key": "devtools.fmt.field.module"
+ },
+ "模式已被手工修改，写回可能覆盖你的改动": {
+  "key": "devtools.rx.tipDirty"
+ },
+ "模式无效": {
+  "key": "devtools.rx.invalidPattern"
+ },
+ "正则 flags": {
+  "key": "devtools.rx.flagsAria"
+ },
+ "每行一项…": {
+  "key": "devtools.sort.inputPh"
+ },
+ "毫秒部分": {
+  "key": "devtools.fmt.field.msecs"
+ },
+ "求值中…": {
+  "key": "devtools.common.evaluating"
+ },
+ "求值超时": {
+  "key": "devtools.eval.timeoutFallback"
+ },
+ "求值超时（3s）：格式串过长或解释器无响应": {
+  "key": "devtools.fmt.timeout"
+ },
+ "求值超时（3s）：模式可能存在灾难性回溯，避免嵌套量词（如 (a+)+）": {
+  "key": "devtools.rx.timeout"
+ },
+ "洗牌": {
+  "key": "devtools.sort.shuffle"
+ },
+ "深入浅出爬虫": {
+  "key": "devtools.jp.sampleTitle2"
+ },
+ "清空": {
+  "key": "devtools.common.clear"
+ },
+ "点击「生成」…": {
+  "key": "devtools.pw.outPh"
+ },
+ "点击树节点显示路径": {
+  "key": "devtools.jp.pathPh"
+ },
+ "生成": {
+  "key": "devtools.common.generate"
+ },
+ "生成的 Python 模型将显示在这里": {
+  "key": "devtools.j2m.outPh"
+ },
+ "生成的密码": {
+  "key": "devtools.pw.outAria"
+ },
+ "百分比 (×100 后接 %)": {
+  "key": "devtools.fmt.type.pct"
+ },
+ "目标模型类型": {
+  "key": "devtools.j2m.style"
+ },
+ "示例": {
+  "key": "devtools.jp.sampleBtn"
+ },
+ "示例值": {
+  "key": "devtools.fmt.sampleLabel"
+ },
+ "示例：\\`§\\`（§）": {
+  "key": "devtools.fmt.sampleLine",
+  "params": [
+   "sample",
+   "hint"
+  ]
+ },
+ "示例：§": {
+  "key": "devtools.rx.exampleTip",
+  "params": [
+   "pattern"
+  ]
+ },
+ "科学计数 (大写 E)": {
+  "key": "devtools.fmt.type.E"
+ },
+ "科学计数 (小写 e)": {
+  "key": "devtools.fmt.type.e"
+ },
+ "秒 (00-59)": {
+  "key": "devtools.fmt.code.S"
+ },
+ "空格": {
+  "key": "devtools.fmt.fillSpace"
+ },
+ "空白字符": {
+  "key": "devtools.rx.spaceChars"
+ },
+ "符号 !@#": {
+  "key": "devtools.pw.symbols"
+ },
+ "第 2 个位置实参之后不支持再传位置实参": {
+  "key": "devtools.p2c.tooManyPositional"
+ },
+ "第 § 列应为 \",\" 或 \"]\"": {
+  "key": "devtools.p2c.expectListSep",
+  "params": [
+   "col"
+  ]
+ },
+ "第 § 列应为 \",\" 或 \"}\"": {
+  "key": "devtools.p2c.expectDictSep",
+  "params": [
+   "col"
+  ]
+ },
+ "第 § 列应为 \"§\"": {
+  "key": "devtools.p2c.expectChar",
+  "params": [
+   "col",
+   "ch"
+  ]
+ },
+ "第 § 列附近含非字面量（变量 / 表达式），无法静态解析": {
+  "key": "devtools.p2c.nonLiteral",
+  "params": [
+   "col"
+  ]
+ },
+ "第 § 组捕获开始": {
+  "key": "devtools.rx.groupStart",
+  "params": [
+   "n"
+  ]
+ },
+ "粘贴": {
+  "key": "devtools.common.paste"
+ },
+ "粘贴 JSON 文本…": {
+  "key": "devtools.common.pasteJsonPh"
+ },
+ "粘贴 JSON（对象 / 数组均可）…": {
+  "key": "devtools.j2m.inputPh"
+ },
+ "粘贴 Python requests / httpx 代码…": {
+  "key": "devtools.c2p.pyPh"
+ },
+ "粘贴 curl 命令（可从浏览器「复制为 cURL」）…": {
+  "key": "devtools.c2p.curlPh"
+ },
+ "精度 §": {
+  "key": "devtools.fmt.precision",
+  "params": [
+   "prec"
+  ]
+ },
+ "级别名 (INFO / WARNING …)": {
+  "key": "devtools.fmt.field.levelname"
+ },
+ "级别数字": {
+  "key": "devtools.fmt.field.levelno"
+ },
+ "线程 id": {
+  "key": "devtools.fmt.field.thread"
+ },
+ "线程名": {
+  "key": "devtools.fmt.field.threadName"
+ },
+ "结果将显示在这里": {
+  "key": "devtools.common.resultPlaceholder"
+ },
+ "编码": {
+  "key": "devtools.common.encode"
+ },
+ "编辑器正则已带入，但你的模式已手工修改，未覆盖": {
+  "key": "devtools.rx.broughtKept"
+ },
+ "缩进宽度": {
+  "key": "devtools.jsonfmt.indent"
+ },
+ "自动编号占位（按参数顺序）": {
+  "key": "devtools.fmt.autoNumber"
+ },
+ "至少选择一类字符": {
+  "key": "devtools.textfns.needCharset"
+ },
+ "行号": {
+  "key": "devtools.fmt.field.lineno"
+ },
+ "行尾锚点（re.M）": {
+  "key": "devtools.rx.anchorLineEnd"
+ },
+ "行数：": {
+  "key": "devtools.wc.lines"
+ },
+ "行首锚点（re.M）": {
+  "key": "devtools.rx.anchorLineStart"
+ },
+ "视图": {
+  "key": "devtools.rx.view"
+ },
+ "解析": {
+  "key": "devtools.common.parse"
+ },
+ "解析失败": {
+  "key": "devtools.jp.parseFailedFlash"
+ },
+ "解码": {
+  "key": "devtools.common.decode"
+ },
+ "计算": {
+  "key": "devtools.hash.compute"
+ },
+ "计算失败：§": {
+  "key": "devtools.hash.failed",
+  "params": [
+   "msg"
+  ]
+ },
+ "设置解释器": {
+  "key": "devtools.rx.setInterpreter"
+ },
+ "识别失败": {
+  "key": "devtools.c2p.recognizeFailed"
+ },
+ "词数：": {
+  "key": "devtools.wc.words"
+ },
+ "请先粘贴 JSON": {
+  "key": "devtools.jsonfmt.needInput"
+ },
+ "请先粘贴 JSON 文本": {
+  "key": "devtools.jp.needInput"
+ },
+ "请先输入内容": {
+  "key": "devtools.common.needInput"
+ },
+ "路径": {
+  "key": "devtools.jp.path"
+ },
+ "转义": {
+  "key": "devtools.uni.escape"
+ },
+ "转义字符 §": {
+  "key": "devtools.rx.escapeChar",
+  "params": [
+   "ch"
+  ]
+ },
+ "转换": {
+  "key": "devtools.common.convert"
+ },
+ "转换 !§（§）": {
+  "key": "devtools.fmt.conv",
+  "params": [
+   "conv",
+   "kind"
+  ]
+ },
+ "转换失败": {
+  "key": "devtools.c2p.convertFailedFlash"
+ },
+ "转换失败：§": {
+  "key": "devtools.common.convertFailed",
+  "params": [
+   "msg"
+  ]
+ },
+ "转换方向": {
+  "key": "devtools.common.direction"
+ },
+ "转换模式": {
+  "key": "devtools.caseconvert.mode"
+ },
+ "输入或粘贴文本，统计实时更新…": {
+  "key": "devtools.wc.inputPh"
+ },
+ "输入文本…": {
+  "key": "devtools.caseconvert.inputPh"
+ },
+ "输入文本…（SHA-256 为异步计算）": {
+  "key": "devtools.hash.inputPh"
+ },
+ "输入文本（编码）或 %XX 串（解码）…": {
+  "key": "devtools.urlcode.inputPh"
+ },
+ "输入文本（编码）或 Base64（解码）…": {
+  "key": "devtools.base64.inputPh"
+ },
+ "输入文本（编码）或 HTML 实体（解码）…": {
+  "key": "devtools.htmlentity.inputPh"
+ },
+ "输入明文（转义）或 \\\\uXXXX 串（还原）…": {
+  "key": "devtools.uni.inputPh"
+ },
+ "输入格式串开始预览（点击速查 chips 插入码位）": {
+  "key": "devtools.fmt.empty"
+ },
+ "输入正则模式开始测试（可点上方示例一键填充）": {
+  "key": "devtools.rx.empty"
+ },
+ "运行": {
+  "key": "devtools.sort.run"
+ },
+ "还原": {
+  "key": "devtools.uni.unescape"
+ },
+ "进程 id": {
+  "key": "devtools.fmt.field.process"
+ },
+ "进程名": {
+  "key": "devtools.fmt.field.processName"
+ },
+ "选区不是有效的数字（支持 0x/0b/0o 前缀与十进制）": {
+  "key": "devtools.textfns.badNumber"
+ },
+ "选区不是有效的时间戳（10 位秒 / 13 位毫秒）": {
+  "key": "devtools.ts.badSelection"
+ },
+ "选区变换工具中无匹配，已显示全部工具": {
+  "key": "devtools.panel.selectionNoMatch"
+ },
+ "通用 (大写 E)": {
+  "key": "devtools.fmt.type.G"
+ },
+ "通用 (整数用 d，否则 e)": {
+  "key": "devtools.fmt.type.g"
+ },
+ "邮箱": {
+  "key": "devtools.rx.exEmail"
+ },
+ "重试": {
+  "key": "devtools.panel.retry"
+ },
+ "长度须在 4-256 之间": {
+  "key": "devtools.textfns.badLength"
+ },
+ "长度（4-256）：": {
+  "key": "devtools.pw.lenLabel"
+ },
+ "降序": {
+  "key": "devtools.sort.desc"
+ },
+ "除换行外的任意字符": {
+  "key": "devtools.rx.anyNoNl"
+ },
+ "非 raw 字符串中的 \\\\§：§。请写作 r\"…\"": {
+  "key": "devtools.rx.nonRawWarn",
+  "params": [
+   "n",
+   "detail"
+  ]
+ },
+ "非单词字符": {
+  "key": "devtools.rx.notWordChars"
+ },
+ "非单词边界": {
+  "key": "devtools.rx.notWordBoundary"
+ },
+ "非捕获分组开始（不参与引用编号）": {
+  "key": "devtools.rx.noncapGroup"
+ },
+ "非数字字符": {
+  "key": "devtools.rx.notDigitClass"
+ },
+ "非空白字符": {
+  "key": "devtools.rx.notSpaceChars"
+ },
+ "预览结果": {
+  "key": "devtools.fmt.outPh"
+ },
+ "颜色预览": {
+  "key": "devtools.color.previewAria"
+ },
+ "默认格式": {
+  "key": "devtools.fmt.defaultSpec"
+ },
+ "（懒惰）": {
+  "key": "devtools.rx.quantLazy"
+ },
+ "（贪婪）": {
+  "key": "devtools.rx.quantGreedy"
+ }
+}

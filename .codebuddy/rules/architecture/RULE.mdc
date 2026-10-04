@@ -1,0 +1,43 @@
+---
+description: Pylume 核心架构与技术栈约束，任何改动必须遵守
+alwaysApply: true
+enabled: true
+updatedAt: 2026-09-10T10:00:00.000Z
+provider:
+---
+
+# Pylume 架构铁律
+
+## 技术栈定位
+
+| 层 | 选型 |
+|---|---|
+| 外壳 | Tauri 2 + Monaco（取代原 Zed 方案） |
+| 静态语义 | Pyrefly（默认）/ basedpyright（备选），首日可切换 |
+| 运行时 | PEP 669 `sys.monitoring` 采样 + 自研运行时 LSP `pylume-intel`（Phase 3） |
+| 调试 | debugpy（随应用打包分发，版本锁 `ci/versions.toml`）+ 自研轻量 DAP 桥（ADR-0004，stdio adapter 模式） |
+| 功能范围 | 补全 / 跳转 / Hover / 诊断 + 脚本运行与 traceback 点击跳转 + 调试（断点 / 单步 / 调用栈 / 变量，最小闭环） |
+
+## 架构第一原则（不可违反）
+
+1. `probe` 与 `intel` 是**完全独立的进程/包**，不依赖外壳内部 API。
+2. 一切自研组件都是**独立进程或独立包**，不侵入外壳与静态引擎内核。
+3. 主干开发 + 短分支 PR；CI 全绿才可合并。
+
+## 目录职责
+
+- `shell/` — Tauri 2 + Monaco 外壳
+- `probe/` — pylume-probe 运行时采样（独立包，零第三方依赖）
+- `bench/` — 基准项目集 + 指标采集脚本
+- `ci/` — 版本锁定基线
+- `docs/` — 方案 / 交接文档 / ADR / 验收记录
+- `intel/` — pylume-intel 运行时智能 LSP（Phase 3 已交付）
+- `tools/` — 构建辅助脚本（如 `fetch-debugpy.ps1` 按 sha256 拉取打包 debugpy）
+- `vendor/` — 打包产物暂存（如 `vendor/debugpy/`，`.gitignore` 不入库，构建时按 `ci/versions.toml` 锁定复现）
+
+## 文档约定
+
+- 技术方案与开发计划冲突时，**以开发计划为准**并反馈修订。
+- 现行方案：`docs/python_ide_tech_plan_v3.md`；现行计划：`docs/python_ide_dev_plan_v2.md`。
+- 调试功能：计划 `docs/python_debug_dev_plan.md`（v1.3）· 验收 `docs/debug_acceptance_record.md` · 决策 `docs/adr/0004-dap-bridge-debugpy-bundled.md`。
+- 新旧版本文档冲突时，以版本号更高者为准。

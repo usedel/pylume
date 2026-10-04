@@ -1,0 +1,60 @@
+---
+description: pylume-probe 与 Python 源码规范（开销红线、架构分层、PEP 669 语义）
+globs: "**/*.py"
+alwaysApply: false
+enabled: true
+updatedAt: 2026-09-10T00:00:00.000Z
+provider:
+---
+
+# Python 代码规范（pylume-probe）
+
+## 环境与依赖
+
+- `probe/` 用 **uv** 管理，Python 3.13+（当前 3.13.7）。
+- **零第三方依赖**：不得擅自引入第三方包，除非有明确裁决。
+- 单测用 pytest，必须保持全绿（`uv run pytest`；数量随开发递增，以实测为准，勿在此处写死）。
+
+## 打包与注入（2026-09-10 整改固化）
+
+- **wheel 必须包含顶层 `sitecustomize.py`**：`pyproject.toml` 的 `[tool.hatch.build.targets.wheel] force-include` 已配置；漏包会让 pip 安装后 inject/check 注入链路整体失效。改动打包配置后用 `uv build --wheel` + 检查 zip 内容回归。
+- **`run_with_probe` 的现场恢复（argv/cwd/sys.path）必须包住 `mon.start()`**：start 抛异常（如低版本无 sys.monitoring）也要恢复现场，不得只在 run_path 外围 try/finally。
+- **argv[0] 守卫比较用 `os.path.normcase` 归一化**（`autostart.py`）：Windows 启动方式不同导致的大小写差异会让主进程被误判为子进程而跳过采集。
+
+## 架构分层（固定，勿打乱）
+
+```
+cli（run/show/inject/clean/check）
+  → runner（同进程）/ autostart + sitecustomize（注入模式）
+    → monitor（PEP 669 采集核心）
+      → compact（类型紧凑表示）→ sink（内存聚合，运行期零 I/O）
+        → store（SQLite trace 库）
+```
+
+## 开销红线（不可违反）
+
+- 探针开销必须 **< 1.5x**（Gate C），当前 1.35x（M4 基准，2026-09-14），改动采集路径后需回归验证。
+- 采集路径改动原则：发现窗口 + 局部事件 + 降采样；窗口外零全局派发。
+
+## 类型紧凑表示（P2-T03）
+
+- **绝不 repr 值本身**。
+- 实例 → `模块.类名`；容器 → 结构指纹；`shape_fingerprint` 只存键/属性名集合（JSON 数组）。
+
+## 已知踩坑（务必遵守）
+
+- SQLite `shape` 列用**空串而非 NULL**——唯一约束对 NULL 不生效，会导致 upsert 失效。
+- PEP 669：tool id 范围 **0-5**；`RAISE` 常开；全局+局部同开为 **OR 语义**；回调返回 `MISSING` 对全局事件无效。
+- 限流：`exclude_modules`（黑名单）**优先于** `include_modules`（白名单）。
+- **`RAISE` 沿异常传播链每帧触发一次**（含会被 `except` 接住的帧），回调时无法区分该帧将销毁还是继续——
+  因此 `_active` 计数**禁止在 RAISE 回调里递减**，只能在关窗决策点用 `_sync_active()` 从调用栈重算校准；
+  异常退出/静音清除局部事件/未耗尽生成器都会造成 `_active` 只增不减，改动 `monitor` 必须跑 `test_monitor` 回归。
+- `_elem_shape` / `shape_fingerprint` 对 list 元素有采样上限（`_MAX_SHAPE_ELEMS`），大容器不全量遍历；
+  只出现在采样窗口外的键会被省略（有意的精度换性能取舍）。
+- 读写 trace 库都要设 `PRAGMA busy_timeout`，写库另设 `journal_mode=WAL` + `synchronous=NORMAL`
+  （多进程写 + intel 并发读，避免 `SQLITE_BUSY`）；`functions` upsert 用 `RETURNING fid` 拿回主键，别再按自然键 SELECT。
+
+## 不侵入原则
+
+- `PYLUME_PROBE_AUTOSTART=1` 才激活，未设置则零介入。
+- 探针任何失败（注入/落库）只打警告，**不改写用户进程退出码**。

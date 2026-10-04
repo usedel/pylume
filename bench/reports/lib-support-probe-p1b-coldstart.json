@@ -1,0 +1,35 @@
+{
+  "probe": "P1b 无 .venv 冷启动补测（回填 P1 缺失场景）",
+  "generatedAt": "2026-09-27 11:42:25",
+  "pythonVersion": "3.13.3",
+  "uvVersion": "uv 0.11.16 (135a36367 2026-05-21 x86_64-pc-windows-msvc)",
+  "workspace": "d:\\code\\pylume\\bench\\lib-support-probe\\ws-novenv",
+  "runsEach": 3,
+  "results": [
+    {
+      "label": "uv python find（.venv 创建前）",
+      "output": "C:\\Users\\87447\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+      "is_project_venv": false,
+      "returncode": 0,
+      "note": "决定：解释器路径缓存的失效条件"
+    },
+    {
+      "label": "uv run python -c（无 .venv 冷启动）",
+      "cmd": "uv run python -c print(1)",
+      "cold_ms": 965.2,
+      "warm_ms": [
+        731.4,
+        223.7
+      ],
+      "warm_avg_ms": 477.5,
+      "note": "首跑创建 .venv，零依赖项目"
+    },
+    {
+      "label": "uv python find（.venv 创建后）",
+      "output": "d:\\code\\pylume\\bench\\lib-support-probe\\ws-novenv\\.venv\\Scripts\\python.exe",
+      "is_project_venv": true,
+      "returncode": 0,
+      "note": "对比创建前输出，验证缓存失效必要性"
+    }
+  ]
+}

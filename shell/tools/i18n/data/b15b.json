@@ -1,0 +1,381 @@
+{
+ "其他": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 139,
+    "quote": "\"",
+    "body": "其他",
+    "start": 5092,
+    "end": 5096,
+    "src": "category: tc.category?.trim() || \"其他\","
+   }
+  ]
+ },
+ "插件系统未初始化": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 143,
+    "quote": "\"",
+    "body": "插件系统未初始化",
+    "start": 5260,
+    "end": 5270,
+    "src": "if (!facadeDeps) throw new Error(\"插件系统未初始化\");"
+   }
+  ]
+ },
+ "「选区变换」工具（入口：命令面板搜「§」，或编辑器选中文本后触发）。以下是调试台：": {
+  "count": 1,
+  "exprs": [
+   "tc.inline?.label ?? tc.title"
+  ],
+  "sites": [
+   {
+    "line": 166,
+    "quote": "`",
+    "body": "「选区变换」工具（入口：命令面板搜「${tc.inline?.label ?? tc.title}」，或编辑器选中文本后触发）。以下是调试台：",
+    "start": 6164,
+    "end": 6237,
+    "src": "hint.textContent = `「选区变换」工具（入口：命令面板搜「${tc.inline?.label ?? tc.title}」，或编辑器选中文本后触发）。以下是调试台：`;"
+   }
+  ]
+ },
+ "粘贴或输入测试文本…": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 168,
+    "quote": "\"",
+    "body": "粘贴或输入测试文本…",
+    "start": 6284,
+    "end": 6296,
+    "src": "const input = kit.textarea({ placeholder: \"粘贴或输入测试文本…\", flex: true });"
+   }
+  ]
+ },
+ "变换结果": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 169,
+    "quote": "\"",
+    "body": "变换结果",
+    "start": 6353,
+    "end": 6359,
+    "src": "const out = kit.output({ placeholder: \"变换结果\" });"
+   }
+  ]
+ },
+ "请先输入测试文本": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 175,
+    "quote": "\"",
+    "body": "请先输入测试文本",
+    "start": 6514,
+    "end": 6524,
+    "src": "errEl.textContent = \"请先输入测试文本\";"
+   }
+  ]
+ },
+ "handler \"§\" 未导出": {
+  "count": 1,
+  "exprs": [
+   "tc.inline?.handler"
+  ],
+  "sites": [
+   {
+    "line": 180,
+    "quote": "`",
+    "body": "handler \"${tc.inline?.handler}\" 未导出",
+    "start": 6656,
+    "end": 6693,
+    "src": "if (typeof fn !== \"function\") throw new Error(`handler \"${tc.inline?.handler}\" 未导出`);"
+   }
+  ]
+ },
+ "handler 未返回字符串": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 184,
+    "quote": "\"",
+    "body": "handler 未返回字符串",
+    "start": 6952,
+    "end": 6968,
+    "src": "if (typeof result !== \"string\") throw new Error(\"handler 未返回字符串\");"
+   }
+  ]
+ },
+ "变换失败：§": {
+  "count": 1,
+  "exprs": [
+   "e instanceof Error ? e.message : String(e)"
+  ],
+  "sites": [
+   {
+    "line": 188,
+    "quote": "`",
+    "body": "变换失败：${e instanceof Error ? e.message : String(e)}",
+    "start": 7068,
+    "end": 7120,
+    "src": "errEl.textContent = `变换失败：${e instanceof Error ? e.message : String(e)}`;"
+   }
+  ]
+ },
+ "运行": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 192,
+    "quote": "\"",
+    "body": "运行",
+    "start": 7169,
+    "end": 7173,
+    "src": "const runBtn = kit.primaryButton(\"运行\", \"play\", () => void run());"
+   }
+  ]
+ },
+ "已按停用清单跳过注册（用户此前停用了内置插件）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 267,
+    "quote": "\"",
+    "body": "已按停用清单跳过注册（用户此前停用了内置插件）",
+    "start": 9783,
+    "end": 9808,
+    "src": "log(rec, \"已按停用清单跳过注册（用户此前停用了内置插件）\");"
+   }
+  ]
+ },
+ "[extensions] 内置工具缺模块：§": {
+  "count": 1,
+  "exprs": [
+   "tc.entry"
+  ],
+  "sites": [
+   {
+    "line": 275,
+    "quote": "`",
+    "body": "[extensions] 内置工具缺模块：${tc.entry}",
+    "start": 9973,
+    "end": 10007,
+    "src": "console.warn(`[extensions] 内置工具缺模块：${tc.entry}`);"
+   }
+  ]
+ },
+ "内置插件已注册：§ 工具": {
+  "count": 1,
+  "exprs": [
+   "rec.toolIds.length"
+  ],
+  "sites": [
+   {
+    "line": 282,
+    "quote": "`",
+    "body": "内置插件已注册：${rec.toolIds.length} 工具",
+    "start": 10168,
+    "end": 10202,
+    "src": "log(rec, `内置插件已注册：${rec.toolIds.length} 工具`);"
+   }
+  ]
+ },
+ "[extensions] 扫描插件目录失败": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 298,
+    "quote": "\"",
+    "body": "[extensions] 扫描插件目录失败",
+    "start": 10657,
+    "end": 10680,
+    "src": "console.warn(\"[extensions] 扫描插件目录失败\", e);"
+   }
+  ]
+ },
+ "manifest 读取失败：§": {
+  "count": 1,
+  "exprs": [
+   "e instanceof Error ? e.message : String(e)"
+  ],
+  "sites": [
+   {
+    "line": 318,
+    "quote": "`",
+    "body": "manifest 读取失败：${e instanceof Error ? e.message : String(e)}",
+    "start": 11353,
+    "end": 11414,
+    "src": "manifest: null, error: `manifest 读取失败：${e instanceof Error ? e.message : String(e)}`,"
+   }
+  ]
+ },
+ "manifest 校验失败：\\n§": {
+  "count": 1,
+  "exprs": [
+   "check.errors.join(\"\\n\")"
+  ],
+  "sites": [
+   {
+    "line": 327,
+    "quote": "`",
+    "body": "manifest 校验失败：\\n${check.errors.join(\"\\n\")}",
+    "start": 11681,
+    "end": 11725,
+    "src": "manifest: null, error: `manifest 校验失败：\\n${check.errors.join(\"\\n\")}`,"
+   }
+  ]
+ },
+ "manifest.id \"§\" 与目录名 \"§\" 不一致（约定目录名 = id）": {
+  "count": 1,
+  "exprs": [
+   "manifest.id",
+   "pluginId"
+  ],
+  "sites": [
+   {
+    "line": 336,
+    "quote": "`",
+    "body": "manifest.id \"${manifest.id}\" 与目录名 \"${pluginId}\" 不一致（约定目录名 = id）",
+    "start": 12007,
+    "end": 12072,
+    "src": "manifest, error: `manifest.id \"${manifest.id}\" 与目录名 \"${pluginId}\" 不一致（约定目录名 = id）`,"
+   }
+  ]
+ },
+ "引擎不兼容：要求 §，当前 §": {
+  "count": 1,
+  "exprs": [
+   "manifest.engines.pylume",
+   "APP_VERSION"
+  ],
+  "sites": [
+   {
+    "line": 344,
+    "quote": "`",
+    "body": "引擎不兼容：要求 ${manifest.engines.pylume}，当前 ${APP_VERSION}",
+    "start": 12356,
+    "end": 12414,
+    "src": "manifest, error: `引擎不兼容：要求 ${manifest.engines.pylume}，当前 ${APP_VERSION}`,"
+   }
+  ]
+ },
+ "检测到既有注册，先注销再重载（热重载/重新扫描）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 401,
+    "quote": "\"",
+    "body": "检测到既有注册，先注销再重载（热重载/重新扫描）",
+    "start": 14485,
+    "end": 14511,
+    "src": "log(rec, \"检测到既有注册，先注销再重载（热重载/重新扫描）\");"
+   }
+  ]
+ },
+ "加载 § 个工具…": {
+  "count": 1,
+  "exprs": [
+   "tools.length"
+  ],
+  "sites": [
+   {
+    "line": 405,
+    "quote": "`",
+    "body": "加载 ${tools.length} 个工具…",
+    "start": 14597,
+    "end": 14622,
+    "src": "log(rec, `加载 ${tools.length} 个工具…`);"
+   }
+  ]
+ },
+ "工具 \"§\" 既无 mount() 导出也未声明 inline（至少实现其一）": {
+  "count": 1,
+  "exprs": [
+   "tc.id"
+  ],
+  "sites": [
+   {
+    "line": 413,
+    "quote": "`",
+    "body": "工具 \"${tc.id}\" 既无 mount() 导出也未声明 inline（至少实现其一）",
+    "start": 14952,
+    "end": 15000,
+    "src": "throw new Error(`工具 \"${tc.id}\" 既无 mount() 导出也未声明 inline（至少实现其一）`);"
+   }
+  ]
+ },
+ "工具 \"§\" 加载失败：§": {
+  "count": 1,
+  "exprs": [
+   "tc.id",
+   "e instanceof Error ? e.message : String(e)"
+  ],
+  "sites": [
+   {
+    "line": 417,
+    "quote": "`",
+    "body": "工具 \"${tc.id}\" 加载失败：${e instanceof Error ? e.message : String(e)}",
+    "start": 15079,
+    "end": 15145,
+    "src": "const msg = `工具 \"${tc.id}\" 加载失败：${e instanceof Error ? e.message : String(e)}`;"
+   }
+  ]
+ },
+ "已加载：§": {
+  "count": 1,
+  "exprs": [
+   "loaded.map((x) => x.tc.title).join(\"、\")"
+  ],
+  "sites": [
+   {
+    "line": 441,
+    "quote": "`",
+    "body": "已加载：${loaded.map((x) => x.tc.title).join(\"、\")}",
+    "start": 15827,
+    "end": 15875,
+    "src": "log(rec, `已加载：${loaded.map((x) => x.tc.title).join(\"、\")}`);"
+   }
+  ]
+ },
+ "插件已重新加载": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 488,
+    "quote": "\"",
+    "body": "插件已重新加载",
+    "start": 17547,
+    "end": 17556,
+    "src": "if (pluginStateSnapshot() !== before) toast(\"插件已重新加载\", \"success\");"
+   }
+  ]
+ },
+ "已停用": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 516,
+    "quote": "\"",
+    "body": "已停用",
+    "start": 18264,
+    "end": 18269,
+    "src": "log(rec, \"已停用\");"
+   }
+  ]
+ }
+}

@@ -1,0 +1,68 @@
+# Pylume 体积 / 规模预算基线（P1-3，落地于 improvement_and_roadmap_report.md §2 P1-3）
+#
+# 纪律：
+#   · 阈值 = 当前实测值 + 明确余量，**只允许通过显式 PR 修改本文件**，不允许脚本自动抬阈值。
+#   · 抬高阈值 = 承认一次架构退让，必须在 PR 里写清理由（谁要求、为什么必须涨）。
+#   · 降低阈值 = 做了拆分，PR 里应附拆分后的文件。
+#   · 语义是"上限"不是"目标"：实际值远低于阈值时不必改本文件。
+#
+# 用法：node shell/scripts/budget-check.mjs            # 断言，超限非零退出
+#      node shell/scripts/budget-check.mjs --report    # 只打印，不改退出码
+#
+# ── 取数口径警告（本文件所有基线的由来）────────────────────────────
+# 本机 PowerShell 5.1 的 ANSI 代码页是 **gb2312**。对**无 BOM 的 UTF-8 源文件**，
+# `Get-Content $f`（不带 -Encoding）会按 GBK 解码并**吞掉换行**：
+#   style.css 实测 5,410 vs 真实 5,668（少 4.5%）；main.ts 2,503 vs 2,897（少 13%）。
+# 丢失比例随文件里 CJK 密度变化，**逐文件不同**，因此用它做基线会得到"看起来对但全是错的"数字。
+# 正确口径见文件末尾「口径」，或直接用 `node shell/scripts/budget-check.mjs`。
+# ─────────────────────────────────────────────────────────────
+
+[budget]
+# —— 文件行数上限（只列"已进超长名单"的文件，避免全量扫描式噪声）——
+
+# style.css：设计系统本体，UI 视觉六批全落在这里。5,050（44c85ea）→ 5,668（HEAD）= +618，
+#   是**唯一在 UI 六批期间显著增长的文件**。上限 5,850（余量 182 行 / 3.2%）。
+#   批 6+ 若开工，须先按主题拆出分文件，而不是抬这一项。
+style_css_max_lines = 5850
+
+# main.ts：2,897。真实故事不是"UI 六批顺带拆了"（同期它是 +58，不是 -336），
+#   而是 tech-debt 记录的 TD-014 拆分成果（~1,196）已被后续功能吃回 +1,701。
+#   上限 3,000：新功能不得再往里堆，净增长需外提。
+main_ts_max_lines = 3000
+
+# git.ts：3,204，Git 迭代 0–6 交付后 44c85ea→HEAD **零变化**（既没涨也没拆）。保持观察。
+git_ts_max_lines = 3300
+
+# lsp/client.ts：1,774，同期零变化；含六段 sortText 合并策略（ADR-0009 段位真源）。
+lsp_client_ts_max_lines = 1850
+
+# env_cmds.rs：Rust 侧最大单文件，4,937 / 32 个命令。P0-4 计划拆到 < 2,500，
+#   即需砍掉 2,437 行（-49%）——**这是本文件里唯一"必须下降"的一项**。
+#   拆分落地前上限只防继续涨。
+env_cmds_rs_max_lines = 5050
+
+# fs_cmds.rs / git_cmds.rs：3,882 / 1,882，同期零变化，同样防涨。
+fs_cmds_rs_max_lines = 4000
+git_cmds_rs_max_lines = 1950
+
+# —— 命令面 ——
+# 192 个 #[tauri::command]。插件化启动前 Rust 侧会继续膨胀，
+# 200 是"必须先讨论插件化"的信号线（超限只告警，见 [policy]）。
+max_tauri_commands = 200
+
+# —— 前端产物 ——
+# dist/assets 下 JS+CSS 合计上限（KB，未压缩原始体积）= 4,918 实测 + 4% 余量。
+# 仅在 dist/ 存在时检查（未构建则跳过，不算失败）。
+max_bundle_kb = 5120
+
+[policy]
+# 命令数超限时是否阻断。200 是"该讨论插件化"的信号线而非红线，
+# 单人项目里阻断会逼出绕过式写法，故默认只告警。
+commands_warn_only = true
+
+# ── 口径 ────────────────────────────────────────────────────────
+# 行数 = 按 LF 切分的段数（文件以 LF 结尾时等于 LF 个数，否则 +1）；**含空行**。
+# 产物体积 = dist/assets 下 .js + .css 的字节和 / 1024，未压缩。
+# 校验方式：node -e "console.log(require('fs').readFileSync(p,'utf8').split(/\r?\n/).length - 1)"
+# 对同一文件，`Get-Content -Encoding UTF8` 与 [System.IO.File]::ReadAllLines() 均应给出同值；
+# 若三者不一致，以按字节数 LF 的口径为准。

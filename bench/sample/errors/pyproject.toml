@@ -1,0 +1,6 @@
+[project]
+name = "errors-bench"
+version = "0.1.0"
+description = "traceback 点击跳转验收材料：5 类错误 + 语法错误（P1-T03/S1-T05）"
+requires-python = ">=3.12"
+dependencies = []

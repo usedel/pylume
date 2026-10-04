@@ -1,0 +1,60 @@
+// 简体中文语言包「settings 域」（真源）：由 tools/i18n/apply_ts.py 从源码抽取、gen_domain.py 生成，勿手改（改动请回到源码与 data/settings_zh.json）。
+// 复数条目（含 {count}）自动展开 .one/.other 两份——中文两形同文。
+export const settings = {
+  // ---- settings ----
+  "settings.failOpenDataDir": "打开数据目录",
+  "settings.failOpenLogDir": "打开日志目录",
+  "settings.failSave": "保存设置",
+  "settings.failStartIntel": "启动运行时智能层",
+  "settings.keybindTip": "点击后直接按下要使用的组合键；Backspace 清除（留空 = 解绑）",
+  // ---- settings.kw ----
+  "settings.kw.autosave": "autosave 自动保存",
+  "settings.kw.bracketColors": "bracket colorization 括号颜色",
+  "settings.kw.cleanLogs": "logs 清理日志",
+  "settings.kw.cleanWebview": "cache webview 清理缓存",
+  "settings.kw.dataOpen": "data directory 数据目录",
+  "settings.kw.debugJmc": "debug just my code 调试步进",
+  "settings.kw.engine": "lsp engine pyrefly basedpyright 引擎",
+  "settings.kw.font": "font size 字号",
+  "settings.kw.fontFamily": "font family 字体",
+  "settings.kw.formatOnSave": "format ruff 格式化",
+  "settings.kw.indentGuides": "indent guides 参考线",
+  "settings.kw.insertSpaces": "indent spaces 缩进空格",
+  "settings.kw.intel": "intel runtime 运行时智能",
+  "settings.kw.ligatures": "ligatures 连字",
+  "settings.kw.logEnabled": "log logging 日志",
+  "settings.kw.logKeep": "log rotate 日志轮转",
+  "settings.kw.logLevel": "log level 日志级别",
+  "settings.kw.logOpen": "log directory 日志目录",
+  "settings.kw.logStdout": "log stdout 日志输出",
+  "settings.kw.migrate": "migrate 迁移",
+  "settings.kw.minimap": "minimap 小地图",
+  "settings.kw.optimizeImports": "imports isort 整理导入",
+  "settings.kw.probe": "probe profiling 探针",
+  "settings.kw.pypiIndex": "pypi mirror pip 源",
+  "settings.kw.reduceMotion": "motion animation 动画",
+  "settings.kw.ruffSeverityE": "ruff severity pycodestyle E 风格 级别 诊断",
+  "settings.kw.ruffSeverityF": "ruff severity pyflakes F 级别 诊断",
+  "settings.kw.ruffSeverityW": "ruff severity pycodestyle W 警告 级别 诊断",
+  "settings.kw.storageOpen": "storage 磁盘",
+  "settings.kw.storageRefresh": "storage usage 磁盘占用",
+  "settings.kw.tabSize": "tab indent 缩进",
+  "settings.kw.terminalCwd": "terminal cwd 终端目录",
+  "settings.kw.terminalShell": "terminal shell pwsh cmd powershell 终端",
+  "settings.kw.themePicker": "theme 主题 appearance",
+  "settings.kw.uvClean": "uv cache 深度清理",
+  "settings.kw.uvPrune": "uv cache 缓存",
+  "settings.kw.wordWrap": "wrap 换行",
+  // ---- settings ----
+  "settings.loadFailedToast": "设置加载失败，本次会话使用默认设置（改动可能无法保存）",
+  "settings.saved": "设置已保存",
+  "settings.shellAuto": "自动（PowerShell 优先，回退 cmd）",
+  "settings.shellCmd": "命令提示符（cmd）",
+  "settings.statusFontSize": "字号 {size}",
+  // ---- settings.theme ----
+  "settings.theme.dark": "深色",
+  "settings.theme.light": "浅色",
+};
+
+/** 本域文案 key：en-US/settings.ts 的 Record<SettingsKey, string> 由它派生。 */
+export type SettingsKey = keyof typeof settings;

@@ -1,0 +1,43 @@
+[package]
+name = "pylume-shell"
+version = "0.1.0"
+description = "Pylume IDE shell (Tauri 2 + Monaco)"
+edition = "2021"
+
+[lib]
+name = "pylume_shell_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-dialog = "2"
+tauri-plugin-clipboard-manager = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+trash = "5"
+sha1 = "0.10"
+base64 = "0.22"
+portable-pty = "0.9"
+notify-debouncer-mini = "0.6"
+ignore = "0.4"
+# PR-H（dx_features_backlog §6.6）：全局搜索正则模式（文件掩码走 ignore 自带 overrides，无需 globset）
+regex = "1"
+shell-words = "1.1"
+# P2 DX：插件包导出/导入（zip）。仅 deflate（默认压缩格式，Windows 资源管理器可直接解压）
+zip = { version = "2", default-features = false, features = ["deflate"] }
+sysinfo = "0.39.6"
+# B3（docs/sqlite_tool_dev_plan.md）：SQLite 数据库工具窗。bundled = 自带 SQLite C 源码（免系统库）；
+# 版本锁 0.32.1（离线缓存可用；升级须走 bench/CI 回归并同步 ci/versions.toml）。
+rusqlite = { version = "0.32.1", features = ["bundled"] }
+# 传递依赖修复（非直接使用）：schemars 0.8.x 以 default-features = false 引入 indexmap 1.9.3，
+# 其 build.rs 的 std 特性探测在 rustc 1.96 下失效 → IndexMap 失去默认 S 参数
+# → schemars 的 `IndexMap<K, V>` 报 error[E0107]（3 个泛型参数只给了 2 个）。
+#
+# ⚠ 仅在此声明 features = ["std"] **不足以**修复：实测 Cargo 的 feature 分离会让
+# schemars 用的那个 indexmap 实例拿不到 std（build.rs 仍走探测分支、has_std 仍未设置）。
+# **真正生效的是 `shell/src-tauri/.cargo/config.toml` 的 `--cfg has_std`**。
+# 这一行保留是为了显式表达依赖意图，并让 Cargo.lock 记录直接依赖关系。
+indexmap = { version = "1", features = ["std"] }

@@ -1,0 +1,896 @@
+{
+ "(未知)": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 45,
+    "quote": "\"",
+    "body": "(未知)",
+    "start": 1800,
+    "end": 1806,
+    "src": "dirPath = \"(未知)\";"
+   }
+  ]
+ },
+ "目录：§": {
+  "count": 1,
+  "exprs": [
+   "dirPath"
+  ],
+  "sites": [
+   {
+    "line": 51,
+    "quote": "`",
+    "body": "目录：${dirPath}",
+    "start": 2020,
+    "end": 2035,
+    "src": "dirLabel.textContent = `目录：${dirPath}`;"
+   }
+  ]
+ },
+ "复制路径": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 56,
+    "quote": "\"",
+    "body": "复制路径",
+    "start": 2223,
+    "end": 2229,
+    "src": "copyDirBtn.append(\"复制路径\");"
+   }
+  ]
+ },
+ "路径已复制": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 58,
+    "quote": "\"",
+    "body": "路径已复制",
+    "start": 2352,
+    "end": 2359,
+    "src": "void invoke(\"copy_to_clipboard\", { text: dirPath }).then(() => toast(\"路径已复制\", \"success\"));"
+   }
+  ]
+ },
+ "打开目录": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 63,
+    "quote": "\"",
+    "body": "打开目录",
+    "start": 2547,
+    "end": 2553,
+    "src": "openDirBtn.append(\"打开目录\");"
+   }
+  ]
+ },
+ "打开目录失败：§": {
+  "count": 1,
+  "exprs": [
+   "e"
+  ],
+  "sites": [
+   {
+    "line": 65,
+    "quote": "`",
+    "body": "打开目录失败：${e}",
+    "start": 2660,
+    "end": 2673,
+    "src": "void invoke(\"reveal_plugins_dir\").catch((e) => toast(`打开目录失败：${e}`, \"error\"));"
+   }
+  ]
+ },
+ "重新扫描": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 70,
+    "quote": "\"",
+    "body": "重新扫描",
+    "start": 2849,
+    "end": 2855,
+    "src": "rescanBtn.append(\"重新扫描\");"
+   }
+  ]
+ },
+ "插件扫描完成": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 74,
+    "quote": "\"",
+    "body": "插件扫描完成",
+    "start": 2978,
+    "end": 2986,
+    "src": "toast(\"插件扫描完成\", \"success\");"
+   }
+  ]
+ },
+ "新建插件…": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 86,
+    "quote": "\"",
+    "body": "新建插件…",
+    "start": 3379,
+    "end": 3386,
+    "src": "newBtn.append(\"新建插件…\");"
+   }
+  ]
+ },
+ "导入插件…": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 91,
+    "quote": "\"",
+    "body": "导入插件…",
+    "start": 3622,
+    "end": 3629,
+    "src": "importBtn.append(\"导入插件…\");"
+   }
+  ]
+ },
+ "作者指南": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 96,
+    "quote": "\"",
+    "body": "作者指南",
+    "start": 3855,
+    "end": 3861,
+    "src": "guideBtn.append(\"作者指南\");"
+   }
+  ]
+ },
+ "暂无插件。点击「新建插件…」用模板起步，或将含 pylume.plugin.json 的插件目录放入上述目录后「重新扫描」。": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 108,
+    "quote": "\"",
+    "body": "暂无插件。点击「新建插件…」用模板起步，或将含 pylume.plugin.json 的插件目录放入上述目录后「重新扫描」。",
+    "start": 4281,
+    "end": 4348,
+    "src": "empty.textContent = \"暂无插件。点击「新建插件…」用模板起步，或将含 pylume.plugin.json 的插件目录放入上述目录后「重新扫描」。\";"
+   }
+  ]
+ },
+ "打开指南失败：§": {
+  "count": 1,
+  "exprs": [
+   "e instanceof Error ? e.message : String(e)"
+  ],
+  "sites": [
+   {
+    "line": 123,
+    "quote": "`",
+    "body": "打开指南失败：${e instanceof Error ? e.message : String(e)}",
+    "start": 4786,
+    "end": 4840,
+    "src": "toast(`打开指南失败：${e instanceof Error ? e.message : String(e)}`, \"error\");"
+   }
+  ]
+ },
+ "导入插件（zip）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 130,
+    "quote": "\"",
+    "body": "导入插件（zip）",
+    "start": 5006,
+    "end": 5017,
+    "src": "title: \"导入插件（zip）\","
+   }
+  ]
+ },
+ "插件包": {
+  "count": 2,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 133,
+    "quote": "\"",
+    "body": "插件包",
+    "start": 5084,
+    "end": 5089,
+    "src": "filters: [{ name: \"插件包\", extensions: [\"zip\"] }],"
+   },
+   {
+    "line": 157,
+    "quote": "\"",
+    "body": "插件包",
+    "start": 5866,
+    "end": 5871,
+    "src": "filters: [{ name: \"插件包\", extensions: [\"zip\"] }],"
+   }
+  ]
+ },
+ "插件导入成功": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 140,
+    "quote": "\"",
+    "body": "插件导入成功",
+    "start": 5311,
+    "end": 5319,
+    "src": "toast(\"插件导入成功\", \"success\");"
+   }
+  ]
+ },
+ "导入插件": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 142,
+    "quote": "\"",
+    "body": "导入插件",
+    "start": 5377,
+    "end": 5383,
+    "src": "void openAlert({ title: \"导入插件\", message: `导入失败：${e instanceof Error ? e.message : String(e)}` });"
+   }
+  ]
+ },
+ "导入失败：§": {
+  "count": 1,
+  "exprs": [
+   "e instanceof Error ? e.message : String(e)"
+  ],
+  "sites": [
+   {
+    "line": 142,
+    "quote": "`",
+    "body": "导入失败：${e instanceof Error ? e.message : String(e)}",
+    "start": 5394,
+    "end": 5446,
+    "src": "void openAlert({ title: \"导入插件\", message: `导入失败：${e instanceof Error ? e.message : String(e)}` });"
+   }
+  ]
+ },
+ "内置插件无需导出（随应用分发）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 149,
+    "quote": "\"",
+    "body": "内置插件无需导出（随应用分发）",
+    "start": 5603,
+    "end": 5620,
+    "src": "toast(\"内置插件无需导出（随应用分发）\", \"info\");"
+   }
+  ]
+ },
+ "导出插件": {
+  "count": 2,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 155,
+    "quote": "\"",
+    "body": "导出插件",
+    "start": 5802,
+    "end": 5808,
+    "src": "title: \"导出插件\","
+   },
+   {
+    "line": 163,
+    "quote": "\"",
+    "body": "导出插件",
+    "start": 6135,
+    "end": 6141,
+    "src": "void openAlert({ title: \"导出插件\", message: `导出失败：${e instanceof Error ? e.message : String(e)}` });"
+   }
+  ]
+ },
+ "已导出到 §": {
+  "count": 1,
+  "exprs": [
+   "target"
+  ],
+  "sites": [
+   {
+    "line": 161,
+    "quote": "`",
+    "body": "已导出到 ${target}",
+    "start": 6061,
+    "end": 6077,
+    "src": "toast(`已导出到 ${target}`, \"success\");"
+   }
+  ]
+ },
+ "导出失败：§": {
+  "count": 1,
+  "exprs": [
+   "e instanceof Error ? e.message : String(e)"
+  ],
+  "sites": [
+   {
+    "line": 163,
+    "quote": "`",
+    "body": "导出失败：${e instanceof Error ? e.message : String(e)}",
+    "start": 6152,
+    "end": 6204,
+    "src": "void openAlert({ title: \"导出插件\", message: `导出失败：${e instanceof Error ? e.message : String(e)}` });"
+   }
+  ]
+ },
+ "命令面板搜「问候选区」试试；面板里也有调试台": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 177,
+    "quote": "\"",
+    "body": "命令面板搜「问候选区」试试；面板里也有调试台",
+    "start": 6662,
+    "end": 6686,
+    "src": "? \"命令面板搜「问候选区」试试；面板里也有调试台\""
+   }
+  ]
+ },
+ "菜单「工具 → 文本」试试你的插件，改 hello.js 保存即热重载": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 178,
+    "quote": "\"",
+    "body": "菜单「工具 → 文本」试试你的插件，改 hello.js 保存即热重载",
+    "start": 6697,
+    "end": 6734,
+    "src": ": \"菜单「工具 → 文本」试试你的插件，改 hello.js 保存即热重载\";"
+   }
+  ]
+ },
+ "模板已创建——§": {
+  "count": 1,
+  "exprs": [
+   "next"
+  ],
+  "sites": [
+   {
+    "line": 179,
+    "quote": "`",
+    "body": "模板已创建——${next}",
+    "start": 6746,
+    "end": 6762,
+    "src": "toast(`模板已创建——${next}`, \"success\");"
+   }
+  ]
+ },
+ "插件脚手架": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 181,
+    "quote": "\"",
+    "body": "插件脚手架",
+    "start": 6820,
+    "end": 6827,
+    "src": "void openAlert({ title: \"插件脚手架\", message: `创建失败：${e instanceof Error ? e.message : String(e)}` });"
+   }
+  ]
+ },
+ "创建失败：§": {
+  "count": 1,
+  "exprs": [
+   "e instanceof Error ? e.message : String(e)"
+  ],
+  "sites": [
+   {
+    "line": 181,
+    "quote": "`",
+    "body": "创建失败：${e instanceof Error ? e.message : String(e)}",
+    "start": 6838,
+    "end": 6890,
+    "src": "void openAlert({ title: \"插件脚手架\", message: `创建失败：${e instanceof Error ? e.message : String(e)}` });"
+   }
+  ]
+ },
+ "新建插件": {
+  "count": 2,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 194,
+    "quote": "\"",
+    "body": "新建插件",
+    "start": 7410,
+    "end": 7416,
+    "src": "card.setAttribute(\"aria-label\", \"新建插件\");"
+   },
+   {
+    "line": 198,
+    "quote": "\"",
+    "body": "新建插件",
+    "start": 7533,
+    "end": 7539,
+    "src": "title.textContent = \"新建插件\";"
+   }
+  ]
+ },
+ "插件 id": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 203,
+    "quote": "\"",
+    "body": "插件 id",
+    "start": 7706,
+    "end": 7713,
+    "src": "idLabel.textContent = \"插件 id\";"
+   }
+  ]
+ },
+ "如 com.yourname.my-tools": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 207,
+    "quote": "\"",
+    "body": "如 com.yourname.my-tools",
+    "start": 7853,
+    "end": 7878,
+    "src": "idInput.placeholder = \"如 com.yourname.my-tools\";"
+   }
+  ]
+ },
+ "名称": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 214,
+    "quote": "\"",
+    "body": "名称",
+    "start": 8121,
+    "end": 8125,
+    "src": "nameLabel.textContent = \"名称\";"
+   }
+  ]
+ },
+ "显示在菜单与插件列表，如 我的工具集": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 218,
+    "quote": "\"",
+    "body": "显示在菜单与插件列表，如 我的工具集",
+    "start": 8275,
+    "end": 8295,
+    "src": "nameInput.placeholder = \"显示在菜单与插件列表，如 我的工具集\";"
+   }
+  ]
+ },
+ "模板": {
+  "count": 2,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 225,
+    "quote": "\"",
+    "body": "模板",
+    "start": 8547,
+    "end": 8551,
+    "src": "tplLabel.textContent = \"模板\";"
+   },
+   {
+    "line": 279,
+    "quote": "\"",
+    "body": "模板",
+    "start": 10649,
+    "end": 10653,
+    "src": "root.setAttribute(\"aria-label\", \"模板\");"
+   }
+  ]
+ },
+ "取消": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 232,
+    "quote": "\"",
+    "body": "取消",
+    "start": 8815,
+    "end": 8819,
+    "src": "cancelBtn.textContent = \"取消\";"
+   }
+  ]
+ },
+ "创建": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 235,
+    "quote": "\"",
+    "body": "创建",
+    "start": 8939,
+    "end": 8943,
+    "src": "okBtn.textContent = \"创建\";"
+   }
+  ]
+ },
+ "请填写插件 id 与名称": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 248,
+    "quote": "\"",
+    "body": "请填写插件 id 与名称",
+    "start": 9424,
+    "end": 9438,
+    "src": "toast(\"请填写插件 id 与名称\", \"info\");"
+   }
+  ]
+ },
+ "面板工具": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 272,
+    "quote": "\"",
+    "body": "面板工具",
+    "start": 10307,
+    "end": 10313,
+    "src": "{ value: \"panel\", label: \"面板工具\", desc: \"带输入/输出界面的完整工具\" },"
+   }
+  ]
+ },
+ "带输入/输出界面的完整工具": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 272,
+    "quote": "\"",
+    "body": "带输入/输出界面的完整工具",
+    "start": 10321,
+    "end": 10336,
+    "src": "{ value: \"panel\", label: \"面板工具\", desc: \"带输入/输出界面的完整工具\" },"
+   }
+  ]
+ },
+ "选区变换": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 273,
+    "quote": "\"",
+    "body": "选区变换",
+    "start": 10370,
+    "end": 10376,
+    "src": "{ value: \"inline\", label: \"选区变换\", desc: \"选中文本原地替换，无界面\" },"
+   }
+  ]
+ },
+ "选中文本原地替换，无界面": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 273,
+    "quote": "\"",
+    "body": "选中文本原地替换，无界面",
+    "start": 10384,
+    "end": 10398,
+    "src": "{ value: \"inline\", label: \"选区变换\", desc: \"选中文本原地替换，无界面\" },"
+   }
+  ]
+ },
+ "空白": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 274,
+    "quote": "\"",
+    "body": "空白",
+    "start": 10431,
+    "end": 10435,
+    "src": "{ value: \"blank\", label: \"空白\", desc: \"只有 manifest，从头写\" },"
+   }
+  ]
+ },
+ "只有 manifest，从头写": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 274,
+    "quote": "\"",
+    "body": "只有 manifest，从头写",
+    "start": 10443,
+    "end": 10460,
+    "src": "{ value: \"blank\", label: \"空白\", desc: \"只有 manifest，从头写\" },"
+   }
+  ]
+ },
+ " · § 工具": {
+  "count": 1,
+  "exprs": [
+   "rec.toolIds.length"
+  ],
+  "sites": [
+   {
+    "line": 331,
+    "quote": "`",
+    "body": " · ${rec.toolIds.length} 工具",
+    "start": 12640,
+    "end": 12669,
+    "src": "const toolCount = rec.toolIds.length > 0 ? ` · ${rec.toolIds.length} 工具` : \"\";"
+   }
+  ]
+ },
+ "已启用": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 332,
+    "quote": "\"",
+    "body": "已启用",
+    "start": 12723,
+    "end": 12728,
+    "src": "const statusText = rec.status === \"active\" ? \"已启用\" : rec.status === \"disabled\" ? \"已停用\" : rec.status === \"error\" ? \"加载失败\" : \"\";"
+   }
+  ]
+ },
+ "已停用": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 332,
+    "quote": "\"",
+    "body": "已停用",
+    "start": 12759,
+    "end": 12764,
+    "src": "const statusText = rec.status === \"active\" ? \"已启用\" : rec.status === \"disabled\" ? \"已停用\" : rec.status === \"error\" ? \"加载失败\" : \"\";"
+   }
+  ]
+ },
+ "加载失败": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 332,
+    "quote": "\"",
+    "body": "加载失败",
+    "start": 12792,
+    "end": 12798,
+    "src": "const statusText = rec.status === \"active\" ? \"已启用\" : rec.status === \"disabled\" ? \"已停用\" : rec.status === \"error\" ? \"加载失败\" : \"\";"
+   }
+  ]
+ },
+ "§§ · §": {
+  "count": 1,
+  "exprs": [
+   "rec.source === \"builtin\" ? \"内置\" : \"全局\"",
+   "toolCount",
+   "statusText"
+  ],
+  "sites": [
+   {
+    "line": 333,
+    "quote": "`",
+    "body": "${rec.source === \"builtin\" ? \"内置\" : \"全局\"}${toolCount} · ${statusText}",
+    "start": 12826,
+    "end": 12897,
+    "src": "meta.textContent = `${rec.source === \"builtin\" ? \"内置\" : \"全局\"}${toolCount} · ${statusText}`;"
+   }
+  ]
+ },
+ "内置": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 333,
+    "quote": "\"",
+    "body": "内置",
+    "start": 12856,
+    "end": 12860,
+    "src": "meta.textContent = `${rec.source === \"builtin\" ? \"内置\" : \"全局\"}${toolCount} · ${statusText}`;"
+   }
+  ]
+ },
+ "全局": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 333,
+    "quote": "\"",
+    "body": "全局",
+    "start": 12863,
+    "end": 12867,
+    "src": "meta.textContent = `${rec.source === \"builtin\" ? \"内置\" : \"全局\"}${toolCount} · ${statusText}`;"
+   }
+  ]
+ },
+ "版本": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 371,
+    "quote": "\"",
+    "body": "版本",
+    "start": 14034,
+    "end": 14038,
+    "src": "detail.append(line(\"版本\", rec.version));"
+   }
+  ]
+ },
+ "引擎要求": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 372,
+    "quote": "\"",
+    "body": "引擎要求",
+    "start": 14103,
+    "end": 14109,
+    "src": "if (rec.manifest?.engines) detail.append(line(\"引擎要求\", rec.manifest.engines.pylume));"
+   }
+  ]
+ },
+ "权限": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 373,
+    "quote": "\"",
+    "body": "权限",
+    "start": 14166,
+    "end": 14170,
+    "src": "detail.append(line(\"权限\", (rec.manifest?.permissions ?? []).join(\", \") || \"（默认：toast / log）\"));"
+   }
+  ]
+ },
+ "（默认：toast / log）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 373,
+    "quote": "\"",
+    "body": "（默认：toast / log）",
+    "start": 14220,
+    "end": 14238,
+    "src": "detail.append(line(\"权限\", (rec.manifest?.permissions ?? []).join(\", \") || \"（默认：toast / log）\"));"
+   }
+  ]
+ },
+ "工具": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 376,
+    "quote": "\"",
+    "body": "工具",
+    "start": 14373,
+    "end": 14377,
+    "src": "if (toolTitles) detail.append(line(\"工具\", toolTitles));"
+   }
+  ]
+ },
+ "重载": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 389,
+    "quote": "\"",
+    "body": "重载",
+    "start": 14783,
+    "end": 14787,
+    "src": "reloadBtn.textContent = \"重载\";"
+   }
+  ]
+ },
+ "启用": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 394,
+    "quote": "\"",
+    "body": "启用",
+    "start": 15048,
+    "end": 15052,
+    "src": "toggleBtn.textContent = \"启用\";"
+   }
+  ]
+ },
+ "停用": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 397,
+    "quote": "\"",
+    "body": "停用",
+    "start": 15198,
+    "end": 15202,
+    "src": "toggleBtn.textContent = \"停用\";"
+   }
+  ]
+ },
+ "导出": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 406,
+    "quote": "\"",
+    "body": "导出",
+    "start": 15601,
+    "end": 15605,
+    "src": "exportBtn.textContent = \"导出\";"
+   }
+  ]
+ },
+ "日志（本会话最近 50 条 · 跨重启记录落盘于 logs/plugins/<id>.log）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 418,
+    "quote": "\"",
+    "body": "日志（本会话最近 50 条 · 跨重启记录落盘于 logs/plugins/<id>.log）",
+    "start": 16046,
+    "end": 16095,
+    "src": "logTitle.textContent = \"日志（本会话最近 50 条 · 跨重启记录落盘于 logs/plugins/<id>.log）\";"
+   }
+  ]
+ },
+ "（暂无日志——在插件代码里调 host.log(\\\"...\\\") 试试）": {
+  "count": 1,
+  "exprs": [],
+  "sites": [
+   {
+    "line": 424,
+    "quote": "\"",
+    "body": "（暂无日志——在插件代码里调 host.log(\\\"...\\\") 试试）",
+    "start": 16334,
+    "end": 16372,
+    "src": "emptyLog.textContent = \"（暂无日志——在插件代码里调 host.log(\\\"...\\\") 试试）\";"
+   }
+  ]
+ }
+}

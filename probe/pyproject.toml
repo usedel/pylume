@@ -1,0 +1,29 @@
+[project]
+name = "pylume-probe"
+version = "0.1.0"
+description = "Pylume 运行时探针：基于 PEP 669 (sys.monitoring) 采集运行时类型与调用信息，写入 SQLite trace 库"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Pylume" }]
+dependencies = []  # 纯标准库，零第三方依赖（架构第一原则：独立包，不依赖外壳）
+
+[project.scripts]
+pylume-probe = "pylume_probe.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+# CR-19：sitecustomize.py 必须随 wheel 打包——顶层模块经 PYTHONPATH 生效，
+# 漏包会导致 pip 安装后 inject/check 的注入链路失效（找不到 sitecustomize 即零采集）。
+# force-include 把 src/sitecustomize.py 映射到 wheel 顶层 sitecustomize.py。
+packages = ["src/pylume_probe"]
+force-include = { "src/sitecustomize.py" = "sitecustomize.py" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

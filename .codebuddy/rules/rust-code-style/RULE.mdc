@@ -1,0 +1,78 @@
+---
+description: shell/src-tauri Rust 外壳代码规范（Tauri 2 命令、LSP 桥、运行集成）
+globs: "**/*.rs"
+alwaysApply: false
+enabled: true
+updatedAt: 2026-09-11T18:40:00.000Z
+provider:
+---
+
+# Rust 代码规范（shell/src-tauri）
+
+## 模块结构
+
+- `lib.rs` — Tauri 入口 + 命令注册。窗口用 `WebviewWindowBuilder` 手动构建（`tauri.conf.json` 的 `app.windows` 是空数组，改窗口属性来这里）。**`min_inner_size(800,600)` 有跨层耦合，调整前必读两条禁区**（UI-23，lib.rs 就地注释同录）：① 下调前核对前端三栏宽度下限之和（侧栏 180 + 右面板 260 + 编辑区 240 = 680，见 style.css / layout.ts）；② 上调到 900 以上会让 style.css 的 `@media (max-width:900px)`（状态栏窄窗口降级）在打包应用内永不触发。
+- 功能模块按职责拆分：
+  - `fs_cmds.rs` — 文件树/读写/工作区记忆/全局搜索；
+  - `file_ops.rs` — 文件写操作（增删改/复制粘贴/回收站/最近文件）+ 打开系统浏览器（`open_external`，仅放行 http/https 外链）；
+  - `env_cmds.rs` — Python 环境（解释器列举/venv/包管理）；
+  - `settings.rs` — 全局设置（存 `~/.pylume/settings.json`）；
+  - `lsp.rs` — LSP 桥（spawn/帧解析/事件转发，stdin 独立 `Arc<Mutex>` 持有）；
+  - `dap.rs` — DAP 桥 / debugpy 调试会话（stdio adapter 模式，与 `lsp.rs` 对称但不混入，见「调试桥」章节）；
+  - `git_cmds.rs` / `git_status.rs` — Git 状态装饰与写操作（暂存/提交/diff/分支/远程/stash/blame）；
+  - `terminal.rs` — 集成终端（portable-pty 多会话）+ 统一运行入口（`run_in_terminal`：脚本 / 项目 PTY 运行）；
+  - `run_env.rs` — 运行环境装配单一来源（`build_run_env`：解释器解析 / env / PYTHONPATH 四段约定 / 探针注入，脚本·项目·调试三链路共用）；
+  - `watcher.rs` — 文件监听（增量刷新源）；
+  - `storage_cmds.rs` — 存储页后端（占用可视化 / 可再生清理 / 数据根落位与迁移，`docs/disk-space-plan.md` P1/P2）；
+  - `tool_paths.rs` — 外部命令统一定位（uv / pyrefly / ruff / git：环境变量 → `~/.pylume/bin` / `~/.local/bin` → 系统 PATH；只解析不安装）；
+  - `toolchain.rs` — 工具链引导（首次启动探测 + 一键安装 uv / pyrefly / basedpyright 到用户目录）；
+  - `edit_history.rs` — 编辑历史采集（低延迟编辑预测数据源：行对事件落 JSONL，本地）；
+  - `history.rs` — 本地历史快照（保存时自动快照 + 回滚，`<data_root>/history/`）；
+  - `util.rs` — 跨模块共享工具（`pylume_home` / `no_window` / `unpoison` / `kill_process_tree` / `allow_asset_dir` asset 协议动态授权）。
+
+## LSP 桥（ADR-0003）
+
+- **引擎无关**：pyrefly（`pyrefly lsp`）与 basedpyright（`basedpyright-langserver --stdio`）切换只改**前端命令表**条目。
+- 桥接：Rust stdio ↔ Tauri IPC ↔ Monaco providers；spawn stdio + 帧解析 + 事件转发。
+- **stdin 独立加锁**（2026-09-10 整改）：`LspInstance.stdin` 为 `Arc<Mutex<ChildStdin>>`，`send_message` 取 Arc 克隆后**先释放全局锁再写**——持全局锁做阻塞写会饿死 lsp_stop/退出监视线程造成子系统死锁。`read_frame` 的 Content-Length 有 64MB 上限（`MAX_FRAME_LEN`），超限断开防 OOM。
+- **退出清理**：`lib.rs` 注册 `RunEvent::Exit` 钩子，统一同步终止 LSP 引擎 / 运行 PTY 会话 / 终端 PTY / watcher（直接关窗不依赖前端主动调用）；退出路径必须用同步 `kill_process_tree`（后台线程会被进程退出截断）。
+
+## 调试桥（DAP / debugpy，ADR-0004）
+
+- **stdio adapter 模式（勿退回 TCP/--listen）**：Rust spawn `python <debugpy>/adapter`（管道，DAP 走 adapter stdin/stdout，同 LSP 桥）；被调试脚本以 `--connect` 连 adapter 的 server socket（地址经 debugpy 私有事件 `debugpyWaitingForServer` 获得），亦走管道 spawn（stdout/stderr → `debug-stdout`/`debug-stderr` → 输出面板）。**禁止**改回 `--listen` + 端口预分配 + TCP：pydevd 网络线程在 ConPTY 下不建连（实测 30s `10061`，详见 `docs/debug_acceptance_record.md` §〇）。代价：调试期 `input()` 交互暂不支持（后续增强）。
+- **与 lsp.rs 对称但不混入**：帧解析在 `dap.rs` 内复刻 `read_dap_frame`（`Content-Length` + 64MB 上限），**不跨模块依赖 lsp.rs 私有项**，避免改 lsp.rs 引入回归。
+- **单序号域**：`dap_send_request` 以前端 `id` 直接作出站 `seq`（debugpy 响应以 `request_seq` 回显）；通知/响应用独立 `100_000` 起始序号域隔离。
+- **adapter_stdin 独立 `Arc<Mutex<ChildStdin>>` 持有**（同 CR-03 纪律）：`send_dap` 锁内只克隆 Arc，释放全局 `DEBUG` 锁后再写——持全局锁做阻塞写会饿死 `debug_stop`/退出监视线程。
+- **`debug_stop` 立即返回**（CR-10 纪律）：取槽后杀进程树（`kill_pid_tree`，`taskkill /T /F`）/ 杀 adapter 全部后台线程化——同步 taskkill 对 debugpy 进程树可耗时数秒会冻结 UI（实测踩坑）。只有应用退出钩子 `debug_stop_for_exit` 例外用同步清理（CR-14）。
+- **会话退出监视以 `seq` 锁定**（同 lsp.rs 先例）：adapter 死亡 / debuggee 退出各起监视线程，`seq` 不匹配（已被新会话替换）立即退出，防误报 `debug-exited` 串线。
+- **互斥（v3.4 收窄）**：`debug_busy()` 单实例守卫；调试与**脚本运行**互斥（`terminal::script_run_busy()` 只看 `run-term-script` 会话），项目实例（长驻服务）可与调试并存（§13.2 裁决 10）。调试态 `probe` 恒 `false`（`build_run_env(..., probe=false)`），不与 probe 采样同时跑。
+- **`locate_debugpy_dir` 出口统一剥 `\\?\` verbatim 前缀**（实测坑）：Tauri `resource_dir()` 返回 verbatim 路径，作 `python <路径>` 参数会使 debugpy 自举 import 失败（`ModuleNotFoundError`）→ 假 `10061`。四级查找：`PYLUME_DEBUGPY_DIR` → `runtime_dir()/debugpy/debugpy` → `util::resource_candidates` → dev 上溯 `vendor/debugpy/debugpy`。
+
+## 运行（run_in_terminal，统一 PTY 入口）
+
+- v3.4 §17-12：运行统一走 PTY（真 TTY），`run_in_terminal(kind: "script" | "project")`——脚本 / 项目两种运行共用 `run_env::build_run_env` 单一装配来源（env / PYTHONPATH / args），已无 piped 运行路径（`run_script`/`stop_script` 等删净）。
+- 解释器解析口径：配置级覆盖 > 工作区配置 > `.venv` 自动检测 > `uv run` 兜底（`run_env::resolve_run_command`）。
+- 会话 id 约定：`run-term-script` / `run-term-project-<N>`（沿用 `RUN_TERM_PREFIX`）；`script_run_busy()` 只看脚本会话，供调试互斥判定（§13.2 收窄）。
+- 探针注入：probe 受全局 `probe_enabled` 开关控制（`settings::current_probe_enabled`），经 `build_run_env` 注入 `PYLUME_PROBE_AUTOSTART=1` + `PYLUME_PROBE_SCRIPT=<绝对路径>` + `PYLUME_PROBE_INSTANCE=<会话 id>`（多实例归属）；probe/src 定位顺序：`PYLUME_PROBE_SRC` → 托管目录 → Tauri 资源目录 → dev 相对 exe 上溯布局；找不到则照常运行仅提示（**探针缺席不拖垮脚本**）。
+
+## 进程与锁约定（务必遵守）
+
+- **杀子进程必须用 `util::kill_process_tree`**（Windows `taskkill /T /F` 杀进程树），禁止裸 `child.kill()`——
+  直接子进程（`uv run` / 解释器 / shell）会拉起孙进程，只杀父进程会让孙进程成孤儿继续运行、停止按钮失效。
+- **非退出路径的 kill 一律 `kill_process_tree_async`**（lsp_start 同名重启 / lsp_stop）：同步 taskkill 对庞杂进程树可耗时数秒，会卡 UI；只有应用退出钩子（RunEvent::Exit）例外用同步版。
+- **stdin/PTY writer 独立 `Arc<Mutex>` 持有**：全局锁只保护 map 增删查，克隆 Arc 后释放锁再写（`lsp.rs::send_message` / `terminal.rs::term_write` 范本）；持全局锁做阻塞 IO = 子系统死锁。
+- **跨线程 `Mutex` 锁统一走 `util::unpoison`**，禁止 `.lock().unwrap()`（避免一个线程 panic 污染锁后连锁 panic）。
+- **网络类 git 操作（push/pull/fetch）用 `exec_git_timeout`**（spawn + 轮询退出 + 超时杀进程树），
+  禁止裸 `.output()` 无超时阻塞，会耗尽 `spawn_blocking` 线程池。
+- **阻塞型命令统一 async + `spawn_blocking`**，不得在同步 command 里等待子进程卡死主线程。
+- LSP 引擎退出监视以实例序号 `seq` 锁定监视对象（同名重启后旧线程立即退出），避免重复 `lsp-exit` 事件。
+
+## 修改后验证（务必遵守）
+
+- **每次改动 `shell/src-tauri` 下的 Rust 代码后，必须主动在 `shell/src-tauri` 目录运行 `cargo check`**，确认编译通过再交付，不得等用户测试或反馈编译错误。
+- Windows cmd 下运行：`cd /d f:\ai-pro\open-charm\shell\src-tauri && cargo check`（不可用 `tail` 等 Unix 命令，管道用 `2>&1` 即可）。
+- 若 `cargo check` 报错，应就地修复并重新 `cargo check` 直至通过。
+
+## 架构约束
+
+- 不侵入外壳内核对静态引擎；自研组件通过独立进程/包集成。

@@ -1,0 +1,51 @@
+{
+  "probe": "P3 intel 对 pandas / NumPy 运行时变量的实际输出（shape_fingerprint = intel hover shape 唯一来源）",
+  "generatedAt": "2026-09-27 22:20:04",
+  "pythonVersion": "3.12.13",
+  "pandasVersion": "3.0.6",
+  "numpyVersion": "2.5.3",
+  "results": [
+    {
+      "label": "df = pd.read_csv(...)",
+      "type_label": "pandas.DataFrame",
+      "shape_fingerprint": "[\"_attrs\",\"_flags\",\"_mgr\"]",
+      "intel_hover_members": [
+        "_attrs",
+        "_flags",
+        "_mgr"
+      ],
+      "has_columns": false
+    },
+    {
+      "label": "series = df[\"age\"]",
+      "type_label": "pandas.Series",
+      "shape_fingerprint": "[\"_attrs\",\"_flags\",\"_mgr\",\"_name\"]",
+      "intel_hover_members": [
+        "_attrs",
+        "_flags",
+        "_mgr",
+        "_name"
+      ],
+      "has_columns": false
+    },
+    {
+      "label": "arr = np.zeros((2,3))",
+      "type_label": "numpy.ndarray",
+      "shape_fingerprint": null,
+      "intel_hover_members": [],
+      "has_columns": false
+    },
+    {
+      "label": "对照组：dict（既有能力基线）",
+      "type_label": "dict[str, str|int]",
+      "shape_fingerprint": "{\"age\":\"int\",\"name\":\"str\"}",
+      "intel_hover_members": "（dict 键结构）",
+      "has_columns": false
+    }
+  ],
+  "verdict": {
+    "type_label_ok": true,
+    "columns_available": false
+  },
+  "note": "列在 DataFrame 内部 _mgr.blocks 结构中，非对象属性；shape_fingerprint 的实例分支只采 __dict__ 属性名"
+}

@@ -1,0 +1,287 @@
+{
+  "engine": "basedpyright",
+  "generatedAt": "2026-09-28T08:30:01.114Z",
+  "venvPython": "F:\\ai-pro\\pylume\\bench\\sample\\pydantic_models\\.venv\\Scripts\\python.exe",
+  "diagReady": true,
+  "diagnostics": {
+    "models.py": [],
+    "usage.py": [
+      {
+        "line": 3,
+        "severity": 1,
+        "code": "reportArgumentType",
+        "source": "basedpyright",
+        "message": "\"Literal['not-an-int']\" 类型的实参无法赋值给函数 \"__init__\" 中 \"int\" 类型的形参 \"id\"\n  \"Literal['not-an-int']\" 与 \"int\" 不兼容"
+      },
+      {
+        "line": 4,
+        "severity": 1,
+        "code": "reportCallIssue",
+        "source": "basedpyright",
+        "message": "参数 \"name\" 缺少传入值"
+      },
+      {
+        "line": 6,
+        "severity": 1,
+        "code": "reportCallIssue",
+        "source": "basedpyright",
+        "message": "参数 \"name\" 缺少传入值"
+      }
+    ],
+    "complete.py": [
+      {
+        "line": 3,
+        "severity": 1,
+        "code": null,
+        "source": "basedpyright",
+        "message": "位置参数不能出现在关键字参数之后"
+      },
+      {
+        "line": 3,
+        "severity": 1,
+        "code": "reportCallIssue",
+        "source": "basedpyright",
+        "message": "需要传入 0 个位置参数"
+      },
+      {
+        "line": 3,
+        "severity": 1,
+        "code": "reportUndefinedVariable",
+        "source": "basedpyright",
+        "message": "\"na\" 未定义"
+      }
+    ],
+    "alias.py": [
+      {
+        "line": 4,
+        "severity": 2,
+        "code": "reportUnannotatedClassAttribute",
+        "source": "basedpyright",
+        "message": "由于这个类未使用 `@final` 装饰，其 `model_config` 属性需要类型注解"
+      },
+      {
+        "line": 10,
+        "severity": 1,
+        "code": "reportCallIssue",
+        "source": "basedpyright",
+        "message": "参数 \"my_alias\" 缺少传入值"
+      },
+      {
+        "line": 10,
+        "severity": 1,
+        "code": "reportCallIssue",
+        "source": "basedpyright",
+        "message": "\"my_field\" 参数不存在"
+      }
+    ],
+    "validators.py": [],
+    "plain.py": [
+      {
+        "line": 9,
+        "severity": 1,
+        "code": "reportArgumentType",
+        "source": "basedpyright",
+        "message": "\"Literal['not-an-int']\" 类型的实参无法赋值给函数 \"__init__\" 中 \"int\" 类型的形参 \"x\"\n  \"Literal['not-an-int']\" 与 \"int\" 不兼容"
+      },
+      {
+        "line": 10,
+        "severity": 1,
+        "code": "reportCallIssue",
+        "source": "basedpyright",
+        "message": "参数 \"x\" 缺少传入值"
+      }
+    ]
+  },
+  "completion": {
+    "total": 140,
+    "labels": [
+      "name=",
+      "__name__",
+      "NameError",
+      "NotADirectoryError",
+      "NameEmail",
+      "NameEmail",
+      "NatsDsn",
+      "NatsDsn",
+      "NegativeInt",
+      "NegativeInt",
+      "NonNegativeInt",
+      "NonNegativeInt",
+      "NegativeFloat",
+      "NegativeFloat",
+      "NonNegativeFloat",
+      "NonNegativeFloat",
+      "NonPositiveFloat",
+      "NonPositiveFloat",
+      "NewPath",
+      "NewPath",
+      "NaiveDatetime",
+      "NaiveDatetime",
+      "new_class",
+      "NGROUPS_MAX",
+      "NGROUPS_MAX",
+      "name",
+      "name",
+      "no_type_check_decorator",
+      "no_type_check_decorator",
+      "NamedTuple",
+      "NamedTuple",
+      "NoDefault",
+      "NoExtraItems",
+      "NAMED_FLAGS",
+      "NOFLAG",
+      "namedtuple",
+      "NoneSchema",
+      "none_schema",
+      "NoInfoValidatorFunction",
+      "NoInfoValidatorFunctionSchema",
+      "no_info_before_validator_function",
+      "no_info_after_validator_function",
+      "NoInfoWrapValidatorFunction",
+      "NoInfoWrapValidatorFunctionSchema",
+      "no_info_wrap_validator_function",
+      "no_info_plain_validator_function",
+      "NullableSchema",
+      "nullable_schema",
+      "NameFactory",
+      "NetmaskValueError",
+      "NAMESPACE_DNS",
+      "NAMESPACE_URL",
+      "NAMESPACE_OID",
+      "NAMESPACE_X500",
+      "nan",
+      "nan",
+      "nextafter",
+      "Namespace",
+      "Nonlocal",
+      "NamedExpr",
+      "Name",
+      "Name",
+      "NameConstant",
+      "NodeTransformer",
+      "NI_DGRAM",
+      "NI_MAXHOST",
+      "NI_MAXSERV",
+      "NI_NAMEREQD",
+      "NETLINK_FIREWALL",
+      "NORMAL_PRIORITY_CLASS",
+      "nanj",
+      "namereplace_errors",
+      "_NamedFuncPointer",
+      "_NameTypes",
+      "napms",
+      "newpad",
+      "nocbreak",
+      "noraw",
+      "NORMALIZE_WHITESPACE",
+      "normalize_encoding",
+      "NullTranslations",
+      "nlargest",
+      "nsmallest",
+      "nl_langinfo",
+      "normalize",
+      "normalize",
+      "_nameToLevel",
+      "NullHandler",
+      "NoSuchMailboxError",
+      "NetrcParseError",
+      "NNTPTemporaryError",
+      "NNTPPermanentError",
+      "NNTPDataError",
+      "normcase",
+      "normcase",
+      "normpath",
+      "normpath",
+      "NO_DEFAULT",
+      "NEWFALSE",
+      "native_encoding",
+      "normalvariate",
+      "NOT_LITERAL",
+      "NOT_LITERAL",
+      "NOT_LITERAL",
+      "NOT_LITERAL_IGNORE",
+      "NOT_LITERAL_IGNORE",
+      "NOT_LITERAL_IGNORE",
+      "NEGATE",
+      "NEGATE",
+      "NEGATE",
+      "NOT_LITERAL_LOC_IGNORE",
+      "NOT_LITERAL_LOC_IGNORE",
+      "NOT_LITERAL_LOC_IGNORE",
+      "NOT_LITERAL_UNI_IGNORE",
+      "NOT_LITERAL_UNI_IGNORE",
+      "NOT_LITERAL_UNI_IGNORE",
+      "_NamedIntConstant",
+      "NormalDist",
+      "NannyNag",
+      "NAMS",
+      "NAOL",
+      "NAOP",
+      "NAOCRD",
+      "NAOHTS",
+      "NAOHTD",
+      "NAOFFD",
+      "NAOVTS",
+      "NAOVTD",
+      "NAOLFD",
+      "NAWS",
+      "NamedTemporaryFile",
+      "NORMAL",
+      "NORMAL",
+      "NoDefaultRoot",
+      "NAME",
+      "NAME",
+      "NOTEQUAL",
+      "NOTEQUAL",
+      "ntpath",
+      "nturl2path"
+    ],
+    "fieldsHit": [
+      "name"
+    ],
+    "nameItem": {
+      "label": "name=",
+      "kind": 6,
+      "data": {
+        "uri": "file:///f%3A/ai-pro/pylume/bench/sample/pydantic_models/complete.py",
+        "position": {
+          "line": 3,
+          "character": 17
+        }
+      },
+      "sortText": "05.9999.name",
+      "filterText": "name"
+    }
+  },
+  "rename": {
+    "files": [
+      "models.py",
+      "usage.py"
+    ],
+    "edits": {
+      "models.py": [
+        {
+          "line": 5,
+          "newText": "full_name"
+        }
+      ],
+      "usage.py": [
+        {
+          "line": 2,
+          "newText": "full_name"
+        },
+        {
+          "line": 3,
+          "newText": "full_name"
+        },
+        {
+          "line": 5,
+          "newText": "full_name"
+        }
+      ]
+    },
+    "stableReferences": 3
+  },
+  "hover": "```python\n(variable) name: str\n```",
+  "stderrTail": ""
+}

@@ -1,0 +1,10 @@
+[project]
+name = "fastapi-annotated-bench"
+version = "0.1.0"
+description = "bench 基准项目：中型 FastAPI（Pydantic 注解齐全，考察静态引擎上限）"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.141",
+    "pydantic>=2.13",
+    "uvicorn>=0.52",
+]

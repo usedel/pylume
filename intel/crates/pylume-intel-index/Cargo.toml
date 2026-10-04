@@ -1,0 +1,12 @@
+[package]
+name = "pylume-intel-index"
+version = "0.1.0"
+edition = "2021"
+description = "Pylume trace 索引层（P3-T02）：读 probe 的 SQLite trace 库并在内存建索引，性能目标 10 万条 < 2s"
+license = "MIT"
+
+[dependencies]
+rusqlite = { version = "0.32", features = ["bundled"] }
+
+[dev-dependencies]
+tempfile = "3"

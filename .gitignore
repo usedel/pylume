@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# uv
+.uv/
+
+# Rust
+target/
+
+# Node / 前端
+node_modules/
+shell/dist/
+
+# Playwright（E2E 产物：trace/截图/last-run；tr-<id> 为调试期临时改名，防止误提交）
+playwright-report/
+test-results/
+.playwright-artifacts-*/
+old-tr-*/
+# 真机 CDP 脚本运行时日志（e2e-real/*.cjs 落盘的 tauri dev 输出）
+shell/e2e-real/.tauri-dev*.log
+
+# Zed / IDE
+.DS_Store
+*.swp
+
+# 运行时产物（trace 库、bench 报告临时文件）
+~/.pylume/
+*.db
+*.db-wal
+*.db-shm
+
+# debugpy vendor 拉取产物（tools/fetch-debugpy.ps1 按 sha256 锁定生成，不入库）
+vendor/
+
+# CI 本地缓存
+ci/.cache/
+
+# 临时提交信息文件（提交辅助脚本用）
+.git-commit-msg.tmp
+# 本机生成的 cargo 链接配置（tools/msvc-env.ps1 走进程环境变量，不再落 .cargo/config.toml）
+shell/.cargo/
+# AI 助手工作区数据（非项目产物）
+.workbuddy-ai/
+# 过程中生成的临时脚本与产物
+scripts/_tmp/
+# i18n 抽取过程的一次性脚本与测试日志
+shell/tools/i18n/data/_tmp/
+# 本地调试日志
+*.log

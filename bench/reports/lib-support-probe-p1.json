@@ -1,0 +1,136 @@
+{
+  "probe": "P1 py_eval 耗时基线",
+  "generatedAt": "2026-09-27 00:14:42",
+  "cachedInterpreter": {
+    "found": "d:\\aipro\\pylume\\bench\\lib-support-probe\\ws\\.venv\\Scripts\\python.exe",
+    "is_project_venv": true
+  },
+  "python": "D:\\py\\python.exe",
+  "pythonVersion": "3.13.14",
+  "uvVersion": "uv 0.11.21 (5aa65dd7a 2026-06-11 x86_64-pc-windows-msvc)",
+  "workspace": "d:\\aipro\\pylume\\bench\\lib-support-probe\\ws",
+  "venvExistedBefore": true,
+  "runsEach": 5,
+  "results": [
+    {
+      "label": "direct: python -c",
+      "cmd": "D:\\py\\python.exe -c import json,sys,re,datetime,ast;a=json.loads(sys.argv[1]);m=re.findall(a['p'],a['s'],a['f']);print(json.dumps({'ok':True,'n':len(m)})) {\"p\": \"\\\\b(\\\\w+)@(\\\\w+)\\\\.com\", \"s\": \"a@corp.com b@corp.com\", \"f\": 0}",
+      "cwd": "d:\\aipro\\pylume\\bench\\lib-support-probe\\ws",
+      "cold_ms": 304.2,
+      "warm_ms": [
+        277.0,
+        221.8,
+        230.2,
+        299.2
+      ],
+      "warm_avg_ms": 257.1,
+      "warm_min_ms": 221.8,
+      "note": "基线"
+    },
+    {
+      "label": "direct: python -I -c",
+      "cmd": "D:\\py\\python.exe -I -c import json,sys,re,datetime,ast;a=json.loads(sys.argv[1]);m=re.findall(a['p'],a['s'],a['f']);print(json.dumps({'ok':True,'n':len(m)})) {\"p\": \"\\\\b(\\\\w+)@(\\\\w+)\\\\.com\", \"s\": \"a@corp.com b@corp.com\", \"f\": 0}",
+      "cwd": "d:\\aipro\\pylume\\bench\\lib-support-probe\\ws",
+      "cold_ms": 98.7,
+      "warm_ms": [
+        94.5,
+        129.6,
+        152.3,
+        127.9
+      ],
+      "warm_avg_ms": 126.1,
+      "warm_min_ms": 94.5,
+      "note": "安全模式开销"
+    },
+    {
+      "label": "direct: 最小脚本",
+      "cmd": "D:\\py\\python.exe -c print(1)",
+      "cwd": "d:\\aipro\\pylume\\bench\\lib-support-probe\\ws",
+      "cold_ms": 290.2,
+      "warm_ms": [
+        274.1,
+        241.4,
+        253.9,
+        276.8
+      ],
+      "warm_avg_ms": 261.6,
+      "warm_min_ms": 241.4,
+      "note": "进程启动下界"
+    },
+    {
+      "label": "uv run python -c",
+      "cmd": "uv run python -c import json,sys,re,datetime,ast;a=json.loads(sys.argv[1]);m=re.findall(a['p'],a['s'],a['f']);print(json.dumps({'ok':True,'n':len(m)})) {\"p\": \"\\\\b(\\\\w+)@(\\\\w+)\\\\.com\", \"s\": \"a@corp.com b@corp.com\", \"f\": 0}",
+      "cwd": "d:\\aipro\\pylume\\bench\\lib-support-probe\\ws",
+      "cold_ms": 606.6,
+      "warm_ms": [
+        432.3,
+        490.6,
+        645.7,
+        444.2
+      ],
+      "warm_avg_ms": 503.2,
+      "warm_min_ms": 432.3,
+      "note": "已存在 .venv"
+    },
+    {
+      "label": "uv run --no-project",
+      "cmd": "uv run --no-project python -c import json,sys,re,datetime,ast;a=json.loads(sys.argv[1]);m=re.findall(a['p'],a['s'],a['f']);print(json.dumps({'ok':True,'n':len(m)})) {\"p\": \"\\\\b(\\\\w+)@(\\\\w+)\\\\.com\", \"s\": \"a@corp.com b@corp.com\", \"f\": 0}",
+      "cwd": "d:\\aipro\\pylume\\bench\\lib-support-probe\\ws",
+      "cold_ms": 430.3,
+      "warm_ms": [
+        500.4,
+        506.4,
+        423.7,
+        433.7
+      ],
+      "warm_avg_ms": 466.0,
+      "warm_min_ms": 423.7,
+      "note": "跳过项目解析"
+    },
+    {
+      "label": "uv run python -c (二次)",
+      "cmd": "uv run python -c import json,sys,re,datetime,ast;a=json.loads(sys.argv[1]);m=re.findall(a['p'],a['s'],a['f']);print(json.dumps({'ok':True,'n':len(m)})) {\"p\": \"\\\\b(\\\\w+)@(\\\\w+)\\\\.com\", \"s\": \"a@corp.com b@corp.com\", \"f\": 0}",
+      "cwd": "d:\\aipro\\pylume\\bench\\lib-support-probe\\ws",
+      "cold_ms": 373.7,
+      "warm_ms": [
+        370.0,
+        427.5,
+        517.5,
+        585.7
+      ],
+      "warm_avg_ms": 475.2,
+      "warm_min_ms": 370.0,
+      "note": "稳态"
+    },
+    {
+      "label": "uv python find",
+      "cmd": "uv python find",
+      "cwd": "d:\\aipro\\pylume\\bench\\lib-support-probe\\ws",
+      "cold_ms": 120.7,
+      "warm_ms": [
+        99.2,
+        130.5,
+        123.6,
+        147.9
+      ],
+      "warm_avg_ms": 125.3,
+      "warm_min_ms": 99.2,
+      "note": "能否落地为解释器缓存"
+    },
+    {
+      "label": "cached: uv python find 结果直连",
+      "cmd": "d:\\aipro\\pylume\\bench\\lib-support-probe\\ws\\.venv\\Scripts\\python.exe -I -c import json,sys,re,datetime,ast;a=json.loads(sys.argv[1]);m=re.findall(a['p'],a['s'],a['f']);print(json.dumps({'ok':True,'n':len(m)})) {\"p\": \"\\\\b(\\\\w+)@(\\\\w+)\\\\.com\", \"s\": \"a@corp.com b@corp.com\", \"f\": 0}",
+      "cwd": "d:\\aipro\\pylume\\bench\\lib-support-probe\\ws",
+      "cold_ms": 186.6,
+      "warm_ms": [
+        217.6,
+        179.3,
+        158.2,
+        159.8
+      ],
+      "warm_avg_ms": 178.7,
+      "warm_min_ms": 158.2,
+      "note": "缓存一次后续直连"
+    }
+  ]
+}

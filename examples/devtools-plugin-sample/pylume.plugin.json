@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "com.example.sample-tools",
+  "name": "示例工具集",
+  "version": "0.1.0",
+  "engines": { "pylume": ">=0.1.0" },
+  "contributes": {
+    "tools": [
+      {
+        "id": "rot13",
+        "title": "ROT13",
+        "description": "字母 ROT13 变换（自逆）",
+        "category": "文本",
+        "icon": "case-sensitive",
+        "entry": "./rot13.js",
+        "inline": { "label": "ROT13 选区", "handler": "rot13Selection" }
+      },
+      {
+        "id": "word-count",
+        "title": "字数统计",
+        "description": "统计字符 / 单词 / 行数",
+        "category": "文本",
+        "icon": "symbol-count",
+        "entry": "./word-count.js"
+      }
+    ]
+  },
+  "permissions": ["clipboard", "selection"]
+}

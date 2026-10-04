@@ -1,0 +1,9 @@
+[project]
+name = "unannotated-scraper-bench"
+version = "0.1.0"
+description = "bench 基准项目：无注解爬虫（运行时采样价值考察，Phase 2/3 主战场）"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.34",
+    "jmespath"
+]

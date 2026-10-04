@@ -1,0 +1,4 @@
+# 真机 CDP 验收运行产物（脚本自产，不入库）
+.tauri-dev.log
+.last-run.log
+.vitest*.log

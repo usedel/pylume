@@ -1,0 +1,195 @@
+{
+  "engine": "pyrefly@PATH",
+  "generatedAt": "2026-09-27T06:29:34.622Z",
+  "projectRoot": "d:\\code\\pylume\\bench\\sample\\extract_refactor",
+  "mainDiagArrived": false,
+  "hoverAlive": "{\"canIncreaseVerbosity\":false,\"contents\":{\"kind\":\"markdown\",\"value\":\"```python\\n(parameter) price: int\\n```\\n\\nGo to [int](file:///<temp>/AppData/Local/Temp/pyrefly_bundled_typeshed_12a148e818",
+  "probes": {
+    "fullList": {
+      "target": "全量 codeAction（不带 only）· print(price * qty)",
+      "total": 3,
+      "actions": [
+        {
+          "title": "Extract into variable `extracted_value`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"    extracted_value = price * qty\\n\",\"range\":{\"end\":{\"character\":0,\"line\":6},\"start\":{\"character\":0,\"line\":6}}},{\"newText\":\"extracted_value\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        },
+        {
+          "title": "Extract into helper `extracted_function`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"def extracted_function(price, qty):\\n    price * qty\\n\\n\",\"range\":{\"end\":{\"character\":0,\"line\":5},\"start\":{\"character\":0,\"line\":5}}},{\"newText\":\"extracted_function(price, qty)\\n\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        },
+        {
+          "title": "Introduce parameter `param`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\", param\",\"range\":{\"end\":{\"character\":30,\"line\":5},\"start\":{\"character\":30,\"line\":5}}},{\"newText\":\"param\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        }
+      ],
+      "resolved": [],
+      "executed": []
+    },
+    "onlyRefactor": {
+      "target": "only=[refactor] · print(price * qty)",
+      "total": 3,
+      "actions": [
+        {
+          "title": "Extract into variable `extracted_value`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"    extracted_value = price * qty\\n\",\"range\":{\"end\":{\"character\":0,\"line\":6},\"start\":{\"character\":0,\"line\":6}}},{\"newText\":\"extracted_value\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        },
+        {
+          "title": "Extract into helper `extracted_function`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"def extracted_function(price, qty):\\n    price * qty\\n\\n\",\"range\":{\"end\":{\"character\":0,\"line\":5},\"start\":{\"character\":0,\"line\":5}}},{\"newText\":\"extracted_function(price, qty)\\n\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        },
+        {
+          "title": "Introduce parameter `param`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\", param\",\"range\":{\"end\":{\"character\":30,\"line\":5},\"start\":{\"character\":30,\"line\":5}}},{\"newText\":\"param\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        }
+      ],
+      "resolved": [],
+      "executed": []
+    },
+    "onlyExtract": {
+      "target": "only=[refactor.extract] · print(price * qty)",
+      "total": 3,
+      "actions": [
+        {
+          "title": "Extract into variable `extracted_value`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"    extracted_value = price * qty\\n\",\"range\":{\"end\":{\"character\":0,\"line\":6},\"start\":{\"character\":0,\"line\":6}}},{\"newText\":\"extracted_value\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        },
+        {
+          "title": "Extract into helper `extracted_function`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"def extracted_function(price, qty):\\n    price * qty\\n\\n\",\"range\":{\"end\":{\"character\":0,\"line\":5},\"start\":{\"character\":0,\"line\":5}}},{\"newText\":\"extracted_function(price, qty)\\n\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        },
+        {
+          "title": "Introduce parameter `param`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\", param\",\"range\":{\"end\":{\"character\":30,\"line\":5},\"start\":{\"character\":30,\"line\":5}}},{\"newText\":\"param\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        }
+      ],
+      "resolved": [],
+      "executed": []
+    },
+    "returnExpr": {
+      "target": "only=[refactor] · return 长表达式",
+      "total": 4,
+      "actions": [
+        {
+          "title": "Extract into variable `extracted_value`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"    extracted_value = subtotal + subtotal * TAX_RATE\\n\",\"range\":{\"end\":{\"character\":0,\"line\":7},\"start\":{\"character\":0,\"line\":7}}},{\"newText\":\"extracted_value\",\"range\":{\"end\":{\"character\":41,\"line\":7},\"start\":{\"character\":11,\"line\":7}}}]}}",
+          "hasData": false
+        },
+        {
+          "title": "Invert boolean `subtotal`",
+          "kind": "refactor.rewrite",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"not (price * qty)\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}},{\"newText\":\"(not subtotal)\",\"range\":{\"end\":{\"character\":19,\"line\":7},\"start\":{\"character\":11,\"line\":7}}},{\"newText\":\"(not subtotal)\",\"range\":{\"end\":{\"character\":30,\"line\":7},\"start\":{\"character\":22,\"line\":7}}}]}}",
+          "hasData": false
+        },
+        {
+          "title": "Extract into helper `extracted_function`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"def extracted_function(subtotal):\\n    subtotal + subtotal * TAX_RATE\\n\\n\",\"range\":{\"end\":{\"character\":0,\"line\":5},\"start\":{\"character\":0,\"line\":5}}},{\"newText\":\"extracted_function(subtotal)\\n\",\"range\":{\"end\":{\"character\":41,\"line\":7},\"start\":{\"character\":11,\"line\":7}}}]}}",
+          "hasData": false
+        },
+        {
+          "title": "Inline variable `subtotal`",
+          "kind": "refactor.inline",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"(price * qty)\",\"range\":{\"end\":{\"character\":19,\"line\":7},\"start\":{\"character\":11,\"line\":7}}},{\"newText\":\"(price * qty)\",\"range\":{\"end\":{\"character\":30,\"line\":7},\"start\":{\"character\":22,\"line\":7}}},{\"newText\":\"\",\"range\":{\"end\":{\"character\":0,\"line\":7},\"start\":{\"character\":0,\"line\":6}}}]}}",
+          "hasData": false
+        }
+      ],
+      "resolved": [],
+      "executed": []
+    },
+    "funcTarget": {
+      "target": "only=[refactor.extract] · extract function 试点",
+      "total": 3,
+      "actions": [
+        {
+          "title": "Extract into variable `extracted_value`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"    extracted_value = price * qty\\n\",\"range\":{\"end\":{\"character\":0,\"line\":6},\"start\":{\"character\":0,\"line\":6}}},{\"newText\":\"extracted_value\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        },
+        {
+          "title": "Extract into helper `extracted_function`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\"def extracted_function(price, qty):\\n    price * qty\\n\\n\",\"range\":{\"end\":{\"character\":0,\"line\":5},\"start\":{\"character\":0,\"line\":5}}},{\"newText\":\"extracted_function(price, qty)\\n\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        },
+        {
+          "title": "Introduce parameter `param`",
+          "kind": "refactor.extract",
+          "command": null,
+          "commandArgs": null,
+          "hasEdit": true,
+          "editSummary": "{\"changes\":{\"file:///D:/code/pylume/bench/sample/extract_refactor/main.py\":[{\"newText\":\", param\",\"range\":{\"end\":{\"character\":30,\"line\":5},\"start\":{\"character\":30,\"line\":5}}},{\"newText\":\"param\",\"range\":{\"end\":{\"character\":26,\"line\":6},\"start\":{\"character\":15,\"line\":6}}}]}}",
+          "hasData": false
+        }
+      ],
+      "resolved": [],
+      "executed": []
+    }
+  },
+  "appliedEdits": [],
+  "stderrTail": "(4)\n INFO Language server processed event `LspRequest(textDocument/codeAction)` in 0.00s (0.00s waiting)\n INFO Handling non-canceled request textDocument/codeAction (5)\n INFO Language server processed event `LspRequest(textDocument/codeAction)` in 0.00s (0.00s waiting)\n INFO Handling non-canceled request textDocument/codeAction (6)\n INFO Language server processed event `LspRequest(textDocument/codeAction)` in 0.00s (0.00s waiting)\n INFO Handling non-canceled request textDocument/codeAction (7)\n INFO Language server processed event `LspRequest(textDocument/codeAction)` in 0.00s (0.00s waiting)\n"
+}
