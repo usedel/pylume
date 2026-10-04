@@ -20,6 +20,13 @@ param(
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot   # parent of tools/ = repo root
 
+# PyPI requires TLS 1.2+. Windows PowerShell 5.1 may negotiate older protocols
+# depending on machine registry (observed: "The underlying connection was
+# closed: An unexpected error occurred on a send.") -- pin TLS 1.2 explicitly.
+# No-op on pwsh 7. Keep this block ASCII-only (see file header note).
+[Net.ServicePointManager]::SecurityProtocol = `
+    [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+
 function Step([string]$msg) {
     Write-Host ""
     Write-Host ("==> " + $msg) -ForegroundColor Cyan

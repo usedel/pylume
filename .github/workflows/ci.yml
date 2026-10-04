@@ -89,7 +89,8 @@ jobs:
         run: cargo build -p pylume-intel --release
 
       - name: vendored debugpy（bundle.resources 依赖，sha256 锁定）
-        run: powershell -ExecutionPolicy Bypass -File tools/fetch-debugpy.ps1
+        shell: pwsh
+        run: ./tools/fetch-debugpy.ps1
 
       - name: shell/src-tauri cargo test（LSP 桥）
         working-directory: shell/src-tauri
