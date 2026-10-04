@@ -81,6 +81,16 @@ jobs:
         working-directory: intel
         run: cargo test
 
+      # tauri 构建脚本在 cargo test 编译期就会校验 tauri.conf.json bundle.resources：
+      # pylume-intel.exe（需 release 构建）与 vendor/debugpy（.gitignore 不入库）
+      # 在全新 checkout 上都不存在——与 build-release.ps1 步骤 2 / 2.5 对齐。
+      - name: pylume-intel release 构建（bundle.resources 依赖）
+        working-directory: intel
+        run: cargo build -p pylume-intel --release
+
+      - name: vendored debugpy（bundle.resources 依赖，sha256 锁定）
+        run: powershell -ExecutionPolicy Bypass -File tools/fetch-debugpy.ps1
+
       - name: shell/src-tauri cargo test（LSP 桥）
         working-directory: shell/src-tauri
         run: cargo test
