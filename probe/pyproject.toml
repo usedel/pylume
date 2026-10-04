@@ -10,6 +10,13 @@ dependencies = []  # 纯标准库，零第三方依赖（架构第一原则：�
 [project.scripts]
 pylume-probe = "pylume_probe.cli:main"
 
+# dev 测试依赖走两条安装路径：
+# - uv（本地）：uv sync 消费 [dependency-groups]
+# - pip（CI）：pip install -e ".[dev]" 消费 [project.optional-dependencies]
+# 两处必须同步维护。
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
 [dependency-groups]
 dev = ["pytest>=8.0"]
 
