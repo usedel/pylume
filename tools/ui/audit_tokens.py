@@ -26,6 +26,11 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+# Windows CI 控制台可能是 cp1252，打印中文/特殊字符会 UnicodeEncodeError —— 强制 UTF-8。
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+
 # ---------------------------------------------------------------- 常量
 
 REPO_ROOT = Path(__file__).resolve().parents[2]

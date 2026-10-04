@@ -18,6 +18,12 @@
 
 name: CI
 
+# Windows runner 控制台默认 cp1252：任何 Python 步骤打印中文/✅/—— 都会
+# UnicodeEncodeError（audit_tokens 首跑即踩）。UTF-8 模式全局兜底，
+# 覆盖 audit_tokens / pip / pytest 等一切 python 子进程。
+env:
+  PYTHONUTF8: "1"
+
 on:
   push:
     # 主干 = master（origin/HEAD -> origin/master）；保留 main 以防分支改名

@@ -102,11 +102,24 @@ def _set_pragmas(conn: sqlite3.Connection, read_only: bool = False) -> None:
 
     读写连接开 WAL（持久化到库文件）；只读连接只设 busy_timeout（`journal_mode=WAL`
     需要写权限，ro 连接跳过）。
+
+    多进程并发首开竞态：切换 journal_mode 需要短暂独占锁，SQLite 对该 pragma
+    不完全遵守 busy_timeout（可能立即 SQLITE_BUSY）。WAL 一旦落库即持久，
+    故先查当前模式、非 WAL 才切换，并对切换失败做退避重试兜底。
     """
     conn.execute("PRAGMA busy_timeout=5000")
-    if not read_only:
-        conn.execute("PRAGMA journal_mode=WAL")
-        conn.execute("PRAGMA synchronous=NORMAL")
+    if read_only:
+        return
+    if conn.execute("PRAGMA journal_mode").fetchone()[0].lower() != "wal":
+        for attempt in range(5):
+            try:
+                conn.execute("PRAGMA journal_mode=WAL")
+                break
+            except sqlite3.OperationalError:
+                if attempt == 4:
+                    raise
+                time.sleep(0.05 * (2 ** attempt))
+    conn.execute("PRAGMA synchronous=NORMAL")
 
 
 def save(cfg: ProbeConfig, sink: ObservationSink, project_root: str, script: str,
